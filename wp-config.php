@@ -34,16 +34,17 @@ if (getenv('OPENSHIFT_APP_NAME') != "") {
 /** These settings can be configured for your local development environment
 	and will not affect your OpenShift configuration */
 } else {
-	define('DB_NAME', 'database_name_here');
+	define('DB_NAME', 'attacbxl');
 
 	/** MySQL database username */
-	define('DB_USER', 'username_here');
+	define('DB_USER', 'root');
 
 	/** MySQL database password */
-	define('DB_PASSWORD', 'password_here');
+	define('DB_PASSWORD', 'root');
 
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
+	define('WP_ENV', 'development');
 }
 
 
