@@ -31,7 +31,7 @@ if (getenv('OPENSHIFT_APP_NAME') != "") {
 	/** MySQL hostname */
 	define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') . ':' . getenv('OPENSHIFT_MYSQL_DB_PORT'));
 
-	// define('WP_ENV', 'production');
+	define('WP_ENV', 'production');
 
 /** These settings can be configured for your local development environment
 	and will not affect your OpenShift configuration */
@@ -46,7 +46,7 @@ if (getenv('OPENSHIFT_APP_NAME') != "") {
 
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
-	// define('WP_ENV', 'development');
+	define('WP_ENV', 'development');
 }
 
 
