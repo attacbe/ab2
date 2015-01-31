@@ -50,7 +50,8 @@ function roots_display_sidebar() {
        */
       array(
         'is_404',
-        'is_front_page'
+        'is_front_page',
+        'tribe_is_upcoming'
       ),
       /**
        * Page template checks (via is_page_template())
@@ -61,7 +62,7 @@ function roots_display_sidebar() {
       )
     );
     $display = apply_filters('roots/display_sidebar', $sidebar_config->display);
-  }  
+  }
 
   return $display;
 }

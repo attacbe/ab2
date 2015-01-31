@@ -6,18 +6,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var jsFileList = [
-    'assets/vendor/bootstrap/js/transition.js',
-    'assets/vendor/bootstrap/js/alert.js',
-    'assets/vendor/bootstrap/js/button.js',
-    'assets/vendor/bootstrap/js/carousel.js',
-    'assets/vendor/bootstrap/js/collapse.js',
-    'assets/vendor/bootstrap/js/dropdown.js',
-    'assets/vendor/bootstrap/js/modal.js',
-    'assets/vendor/bootstrap/js/tooltip.js',
-    'assets/vendor/bootstrap/js/popover.js',
-    'assets/vendor/bootstrap/js/scrollspy.js',
-    'assets/vendor/bootstrap/js/tab.js',
-    'assets/vendor/bootstrap/js/affix.js',
+    'assets/vendor/materialize/js/*.js',
     'assets/js/plugins/*.js',
     'assets/js/_*.js'
   ];
@@ -34,30 +23,22 @@ module.exports = function(grunt) {
         '!assets/**/*.min.*'
       ]
     },
-    less: {
+    sass: {
       dev: {
         files: {
-          'assets/css/main.css': [
-            'assets/less/main.less'
-          ]
+          'assets/css/main.css': 'assets/stylesheets/main.scss'
         },
         options: {
-          compress: false,
-          // LESS source map
-          // To enable, set sourceMap to true and update sourceMapRootpath based on your install
-          sourceMap: true,
-          sourceMapFilename: 'assets/css/main.css.map',
-          sourceMapRootpath: '/app/themes/roots/'
+          style: 'expanded',
+          sourcemap: 'inline'
         }
       },
       build: {
         files: {
-          'assets/css/main.min.css': [
-            'assets/less/main.less'
-          ]
+          'assets/css/main.min.css': 'assets/stylesheets/main.scss'
         },
         options: {
-          compress: true
+          style: 'compressed'
         }
       }
     },
@@ -127,12 +108,12 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      less: {
+      sass: {
         files: [
-          'assets/less/*.less',
-          'assets/less/**/*.less'
+          'assets/stylesheets/*.scss',
+          'assets/stylesheets/**/*.scss'
         ],
-        tasks: ['less:dev', 'autoprefixer:dev']
+        tasks: ['sass:dev', 'autoprefixer:dev']
       },
       js: {
         files: [
@@ -145,12 +126,13 @@ module.exports = function(grunt) {
         // Browser live reloading
         // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
         options: {
-          livereload: false
+          livereload: true
         },
         files: [
           'assets/css/main.css',
           'assets/js/scripts.js',
           'templates/*.php',
+          'trive-events/*.php',
           '*.php'
         ]
       }
@@ -163,13 +145,13 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dev', [
     'jshint',
-    'less:dev',
+    'sass:dev',
     'autoprefixer:dev',
     'concat'
   ]);
   grunt.registerTask('build', [
     'jshint',
-    'less:build',
+    'sass:build',
     'autoprefixer:build',
     'uglify',
     'modernizr',

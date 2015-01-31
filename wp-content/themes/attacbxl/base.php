@@ -8,22 +8,27 @@
   <![endif]-->
 
   <?php
-    do_action('get_header');
-    get_template_part('templates/header');
+  do_action('get_header');
+  get_template_part('templates/header');
   ?>
 
-  <div class="wrap container" role="document">
-    <div class="content row">
-      <main class="main" role="main">
-        <?php include roots_template_path(); ?>
-      </main><!-- /.main -->
+  <div class="container" role="document">
+    <div class="row">
       <?php if (roots_display_sidebar()) : ?>
-        <aside class="sidebar" role="complementary">
+        <main class="col s8" role="main">
+          <?php include roots_template_path(); ?>
+        </main>
+        <aside class="sidebar col s4" role="complementary">
           <?php include roots_sidebar_path(); ?>
-        </aside><!-- /.sidebar -->
+        </aside>
+      <?php else: ?>
+        <main class="col s12" role="main">
+          <?php include roots_template_path(); ?>
+        </main>
       <?php endif; ?>
-    </div><!-- /.content -->
-  </div><!-- /.wrap -->
+    </div>
+  </div>
+
 
   <?php get_template_part('templates/footer'); ?>
 
