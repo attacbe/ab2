@@ -1,5 +1,6 @@
 /*** Colors ***/
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 
 // Mixins
 @import "../vendor/materialize/sass/components/prefixer";
@@ -38,3 +39,10 @@
 @import "../vendor/materialize/sass/components/date_picker/default.scss";
 @import "../vendor/materialize/sass/components/date_picker/default.date.scss";
 @import "../vendor/materialize/sass/components/date_picker/default.time.scss";
+
+// Material overwrite
+@import "core/typo";
+@import "core/utils";
+@import 'material-custom/navbar';
+// Pages
+@import 'pages/front-page';
