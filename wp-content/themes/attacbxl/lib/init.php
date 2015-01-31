@@ -59,3 +59,11 @@ function roots_widgets_init() {
   ));
 }
 add_action('widgets_init', 'roots_widgets_init');
+
+add_image_size('event-card-thumb', 360, 200, true);
+
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3);
+function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
+  $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+  return $html;
+}
