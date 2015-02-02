@@ -20,7 +20,7 @@
       </div>
     <?php }?>
     <div class="media-body">
-      <?php echo the_event_start_date(); ?>
+      <strong><?php echo the_event_start_date(); ?></strong>
       <a href="<?php the_permalink(); ?>" class='media-heading'>
         <h5><?php the_title(); ?></h5>
       </a>

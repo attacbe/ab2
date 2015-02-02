@@ -1,0 +1,11 @@
+.panel-grey {
+  $base-color: #efefef;
+  @include panel-variant($base-color, $panel-default-text, $base-color, $base-color);
+  .panel-body {
+    background: $base-color;
+  }
+
+  .panel-heading {
+    border-bottom-color: darken($base-color, 10%);
+  }
+}

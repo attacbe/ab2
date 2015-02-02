@@ -46,12 +46,40 @@
       </h3>
       <?php get_template_part('templates/components/upcoming-events') ?>
 
-      <div class="panel  panel-default">
+      <div class="panel panel-grey">
         <div class="panel-heading">
           <h5>A propos d'Attac bruxelles 2</h5>
         </div>
         <div class="panel-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <p>
+            Attac est une asbl dont le double objectif est d'acquérir une connaissance critique de la mondialisation financière, et d'agir s'y opposer.
+          </p>
+          <div class="row section">
+            <div class="col-sm-6">
+              <a href="">
+                <img src="<?php echo home_url(); ?>/assets/img/memorandom.jpg" alt="Memorandom 2014 attac" />
+              </a>
+              <div class="caption">
+                <a href="">
+                  <h5>
+                    Memorandom Attac Wal-Bxl 2014
+                  </h5>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <a href="">
+                <img src="<?php echo home_url(); ?>/assets/img/booklet-attac.jpg" alt="Leaflet Attac bruxelles 2" />
+              </a>
+              <div class="caption">
+                <a href="">
+                  <h5>
+                    Leaflet Attac bruxelles 2
+                  </h5>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
