@@ -2,47 +2,77 @@
 @charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 
-// Mixins
-@import "../vendor/materialize/sass/components/prefixer";
-@import "../vendor/materialize/sass/components/mixins";
-@import "../vendor/materialize/sass/components/color";
-
-// Variables;
 @import "core/variables";
-@import "../vendor/materialize/sass/components/variables";
+// Core variables and mixins
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-// Reset
-@import "../vendor/materialize/sass/components/normalize";
+// Reset and dependencies
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/print";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
 
-// components
-@import "../vendor/materialize/sass/components/global";
-@import "../vendor/materialize/sass/components/icons-material-design";
-@import "../vendor/materialize/sass/components/grid";
-@import "../vendor/materialize/sass/components/navbar";
-@import "../vendor/materialize/sass/components/roboto";
-@import "../vendor/materialize/sass/components/typography";
-@import "../vendor/materialize/sass/components/cards";
-@import "../vendor/materialize/sass/components/toast";
-@import "../vendor/materialize/sass/components/tabs";
-@import "../vendor/materialize/sass/components/tooltip";
-@import "../vendor/materialize/sass/components/buttons";
-@import "../vendor/materialize/sass/components/dropdown";
-@import "../vendor/materialize/sass/components/waves";
-@import "../vendor/materialize/sass/components/modal";
-@import "../vendor/materialize/sass/components/collapsible";
-@import "../vendor/materialize/sass/components/materialbox";
-@import "../vendor/materialize/sass/components/form";
-@import "../vendor/materialize/sass/components/table_of_contents";
-@import "../vendor/materialize/sass/components/sideNav";
-@import "../vendor/materialize/sass/components/preloader";
-@import "../vendor/materialize/sass/components/slider";
-@import "../vendor/materialize/sass/components/date_picker/default.scss";
-@import "../vendor/materialize/sass/components/date_picker/default.date.scss";
-@import "../vendor/materialize/sass/components/date_picker/default.time.scss";
+// Core CSS
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/pager";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/labels";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/badges";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/media";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/panels";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/wells";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+
+// Utility classes
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
 
 // Material overwrite
 @import "core/typo";
 @import "core/utils";
 @import 'material-custom/navbar';
+@import 'components/footer';
+@import 'components/section';
+@import 'components/section-header';
+@import 'components/upcoming-events';
+
 // Pages
+@import 'pages/events';
 @import 'pages/front-page';
+
+body { padding-top: 50px; }
+
+.page-header:first-child {
+  margin-top: 0;
+  h1 {
+    margin-top: 0;
+  }
+}

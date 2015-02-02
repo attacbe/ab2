@@ -17,14 +17,14 @@
     <div class="container" role="document">
       <div class="row">
         <?php if (roots_display_sidebar()) : ?>
-          <main class="col s8" role="main">
+          <main class="col-xs-8" role="main">
             <?php include roots_template_path(); ?>
           </main>
-          <aside class="sidebar col s4" role="complementary">
+          <aside class="sidebar col-xs-4" role="complementary">
             <?php include roots_sidebar_path(); ?>
           </aside>
         <?php else: ?>
-          <main class="col s12" role="main">
+          <main class="col-xs-12" role="main">
             <?php include roots_template_path(); ?>
           </main>
         <?php endif; ?>

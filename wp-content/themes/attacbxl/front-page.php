@@ -4,7 +4,7 @@
       <div class="col s12">
         <img src="<?php echo home_url(); ?>/assets/img/logo.png" alt="Attac Bruxelles 2: un autre monde est possible"/>
         <h1>Un autre monde est possible</h1>
-        <h2 class="text-muted"><small>Réapproprions-nous ensemble l’avenir de notre société</small></h2>
+        <h3>Réapproprions-nous ensemble l’avenir de notre société</h3>
       </div>
     </div>
   </div>
@@ -12,9 +12,12 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="container">
-    <div class="col s9">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <h3 class='section-header'>
+        Dernières conférences
+      </h3>
       <div class="row">
         <?php
           global $post;
@@ -31,9 +34,26 @@
           <?php get_template_part('templates/home/conference-card') ?>
         <?php } wp_reset_query(); ?>
       </div>
+
+      <h3 class='section-header'>
+        Presse / publications
+      </h3>
+      <?php get_template_part('templates/components/articles-list') ?>
     </div>
-    <div class="col s3">
-      <?php get_template_part('templates/home/upcoming-events') ?>
+    <div class="col-xs-4">
+      <h3 class='section-header'>
+        Prochains évènements
+      </h3>
+      <?php get_template_part('templates/components/upcoming-events') ?>
+
+      <div class="panel  panel-default">
+        <div class="panel-heading">
+          <h5>A propos d'Attac bruxelles 2</h5>
+        </div>
+        <div class="panel-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
     </div>
   </div>
 </div>

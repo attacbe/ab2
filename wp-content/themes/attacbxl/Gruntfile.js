@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var jsFileList = [
-    'assets/vendor/materialize/js/*.js',
+    'assets/vendor/bootstrap-materialize-design/scripts/*.js',
     'assets/js/plugins/*.js',
     'assets/js/_*.js'
   ];
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
         files: [
           'assets/css/main.css',
           'assets/js/scripts.js',
-          'templates/*.php',
+          'templates/**/*.php',
           'trive-events/*.php',
           '*.php'
         ]

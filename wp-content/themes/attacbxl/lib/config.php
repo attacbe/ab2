@@ -51,7 +51,8 @@ function roots_display_sidebar() {
       array(
         'is_404',
         'is_front_page',
-        'tribe_is_upcoming'
+        'tribe_is_upcoming',
+        'tribe_is_event'
       ),
       /**
        * Page template checks (via is_page_template())

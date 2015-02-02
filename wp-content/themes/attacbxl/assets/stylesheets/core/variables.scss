@@ -1,10 +1,6 @@
-// colors
 $primary-color: #BC3437;
-
-// Header Styles
-$h1-fontsize: 4.2rem !default;
-$h2-fontsize: 3.56rem !default;
-$h3-fontsize: 2.92rem !default;
-$h4-fontsize: 2.28rem !default;
-$h5-fontsize: 1.64rem !default;
-$h6-fontsize: 1rem !default;
+$navbar-inverse-bg: $primary-color;
+$navbar-inverse-color: #fff;
+$navbar-inverse-link-color: $navbar-inverse-color;
+$navbar-inverse-link-active-bg: darken($navbar-inverse-bg, 10%);
+$navbar-inverse-link-hover-bg: $navbar-inverse-link-active-bg;

@@ -1,0 +1,16 @@
+.section-header {
+  padding-bottom: 10px;
+  position: relative;
+  margin-bottom: $line-height-computed * 2;
+
+  &:after {
+    content: '';
+    background: $text-color;
+    display: block;
+    height: 4px;
+    width: 70px;
+    position: relative;
+    bottom: -10px;
+    left: 0;
+  }
+}
