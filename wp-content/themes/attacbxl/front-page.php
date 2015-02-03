@@ -8,8 +8,8 @@
       </div>
     </div>
   </div>
-  <div class="masthead__mask" style='background-image: url(<?php echo home_url(); ?>/assets/img/homebg-mask.png);'>
-  </div>
+  <div class="masthead__mask" style='background-image: url(<?php echo home_url(); ?>/assets/img/homebg-mask.png);'></div>
+  <div class="masthead__sign" style='background-image: url(<?php echo home_url(); ?>/assets/img/fist.png);'></div>
 </div>
 
 <div class="container">
