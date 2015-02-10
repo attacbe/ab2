@@ -22,7 +22,6 @@ var Roots = {
   // All pages
   common: {
     init: function() {
-      $(".button-collapse").sideNav();
     }
   },
   // Home page

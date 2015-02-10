@@ -24,7 +24,7 @@
             <?php include roots_sidebar_path(); ?>
           </aside>
         <?php else: ?>
-          <main class="col-xs-12" role="main">
+          <main class="col-xs-8 col-md-offset-2" role="main">
             <?php include roots_template_path(); ?>
           </main>
         <?php endif; ?>
