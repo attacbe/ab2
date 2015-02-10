@@ -15,8 +15,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-8">
-      <h3 class='section-header'>
-        Dernières conférences
+      <h3>
+        <a href="<?php echo home_url(); ?>/agenda/categorie/conferences/liste/?action=tribe_list&tribe_paged=1&tribe_event_display=past" class='section-header'>
+          Dernières conférences
+        </a>
       </h3>
       <div class="row">
         <?php
@@ -35,14 +37,39 @@
         <?php } wp_reset_query(); ?>
       </div>
 
-      <h3 class='section-header'>
-        Presse / publications
-      </h3>
-      <?php get_template_part('templates/components/articles-list') ?>
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>
+            <a href="<?php echo home_url(); ?>/articles" class='section-header'>
+              Presse / publications
+            </a>
+          </h3>
+          <?php get_template_part('templates/components/articles-list') ?>
+        </div>
+        <div class="col-sm-6">
+          <?php $page = get_page_by_title('Alter sommet'); ?>
+              <h3>
+                <a href="<?php echo get_permalink($page->ID); ?>" class='section-header'>
+                  <?php echo get_the_title($page->ID); ?>
+                </a>
+              </h3>
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              <?php echo get_the_post_thumbnail( $page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+            </a>
+          <?php echo wp_trim_words($page->post_content, $num_words = 50, $more = null );  ?>
+          <p>
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              En savoir plus
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
     <div class="col-xs-4">
-      <h3 class='section-header'>
-        Prochains évènements
+      <h3>
+        <a href="<?php echo home_url(); ?>/events" class='section-header'>
+          Prochains évènements
+        </a>
       </h3>
       <?php get_template_part('templates/components/upcoming-events') ?>
 
