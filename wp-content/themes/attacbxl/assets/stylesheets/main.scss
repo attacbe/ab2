@@ -59,6 +59,9 @@
 @import "core/typo";
 @import "core/utils";
 @import 'material-custom/navbar';
+@import 'components/by-line';
+@import 'components/comments-list';
+@import 'components/entry-title';
 @import 'components/footer';
 @import 'components/panel';
 @import 'components/section';
@@ -69,7 +72,7 @@
 @import 'pages/events';
 @import 'pages/front-page';
 
-body { padding-top: 50px; }
+body { padding-top: 70px; }
 
 .page-header:first-child {
   margin-top: 0;

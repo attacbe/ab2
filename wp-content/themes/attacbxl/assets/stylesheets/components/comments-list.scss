@@ -1,0 +1,12 @@
+.comments {
+  font-size: 14px;
+  margin-top: $line-height-computed * 2;
+}
+
+.comment {
+  margin-bottom: $line-height-computed;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
