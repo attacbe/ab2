@@ -27,7 +27,7 @@
             'tribe_events_cat' => 'conferences',
             'order' => 'DESC',
             'eventDisplay'=>'past',
-            'posts_per_page'=>-3
+            'posts_per_page'=>-4
           ));
 
           foreach($all_events as $post) {
