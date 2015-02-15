@@ -1,20 +1,20 @@
-<div class="masthead" style='background-image: url(<?php echo home_url(); ?>/assets/img/homebg.jpg);'>
+<div class="masthead container-fluid" style='background-image: url(<?php echo home_url(); ?>/assets/img/homebg.jpg);'>
   <div class="container">
     <div class="row">
-      <div class="col s12">
-        <img src="<?php echo home_url(); ?>/assets/img/logo.png" alt="Attac Bruxelles 2: un autre monde est possible"/>
+      <div class="col-xs-12">
+        <img src="<?php echo home_url(); ?>/assets/img/logo.png" alt="Attac Bruxelles 2: un autre monde est possible"/ id="logo">
         <h1>Un autre monde est possible</h1>
         <h3>Réapproprions-nous ensemble l’avenir de notre société</h3>
       </div>
     </div>
   </div>
-  <div class="masthead__mask" style='background-image: url(<?php echo home_url(); ?>/assets/img/homebg-mask.png);'></div>
-  <div class="masthead__sign" style='background-image: url(<?php echo home_url(); ?>/assets/img/fist.png);'></div>
+  <div class="masthead__mask hidden-xs" style='background-image: url(<?php echo home_url(); ?>/assets/img/homebg-mask.png);'></div>
+  <div class="masthead__sign hidden-xs" style='background-image: url(<?php echo home_url(); ?>/assets/img/fist.png);'></div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-8">
+    <div class="col-md-8">
       <h3>
         <a href="<?php echo home_url(); ?>/agenda/categorie/conferences/liste/?action=tribe_list&tribe_paged=1&tribe_event_display=past" class='section-header'>
           Dernières conférences
@@ -65,7 +65,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-4">
+    <div class="col-md-4">
       <h3>
         <a href="<?php echo home_url(); ?>/events" class='section-header'>
           Prochains évènements
