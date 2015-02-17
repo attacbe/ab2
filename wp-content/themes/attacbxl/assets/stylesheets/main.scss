@@ -92,19 +92,23 @@ body { padding-top: 70px; }
   margin-bottom: 40px;
 }
 
-.entry-content-asset iframe,
-.entry-content-asset object,
-.entry-content-asset embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.entry-content-asset {
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.has-content-area img,
-.has-content-area iframe,
-.has-content-area object,
-.has-content-area embed {
-        max-width: 100%;
+.has-content-area {
+  img,
+  iframe,
+  object,
+  embed {
+    max-width: 100%;
+  }
 }
