@@ -73,6 +73,9 @@
       </h3>
       <?php get_template_part('templates/components/upcoming-events') ?>
 
+
+      <?php get_template_part('templates/components/newsletter-widget') ?>
+      
       <div class="panel panel-grey">
         <div class="panel-heading">
           <h5>A propos d'Attac bruxelles 2</h5>
