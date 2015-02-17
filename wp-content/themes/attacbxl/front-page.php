@@ -83,7 +83,7 @@
           </p>
           <div class="row section">
             <div class="col-sm-6">
-              <a href="">
+              <a href="<?php echo home_url(); ?>/wp-content/uploads/2015/02/Memorandum-attac-2014-small.pdf">
                 <img src="<?php echo home_url(); ?>/assets/img/memorandom.jpg" alt="Memorandom 2014 attac" />
               </a>
               <div class="caption">
@@ -95,7 +95,7 @@
               </div>
             </div>
             <div class="col-sm-6">
-              <a href="">
+              <a href="<?php echo home_url(); ?>/wp-content/uploads/2015/02/Brochure_AB2.pdf">
                 <img src="<?php echo home_url(); ?>/assets/img/booklet-attac.jpg" alt="Leaflet Attac bruxelles 2" />
               </a>
               <div class="caption">
