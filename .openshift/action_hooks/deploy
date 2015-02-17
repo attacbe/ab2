@@ -16,9 +16,12 @@ if [ ! -d $OPENSHIFT_DATA_DIR/blogs.dir ]; then
     mkdir $OPENSHIFT_DATA_DIR/blogs.dir
 fi
 
+echo "Remove old upload folder since using hot deploy"
+rm -rf ${OPENSHIFT_REPO_DIR}wp-content/uploads
+
+echo "Symlinking upload dirs"
 ln -sf ${OPENSHIFT_DATA_DIR}blogs.dir ${OPENSHIFT_REPO_DIR}wp-content/
 ln -sf ${OPENSHIFT_DATA_DIR}uploads   ${OPENSHIFT_REPO_DIR}wp-content/
-echo "Symlinking upload dirs" 
 
 set -e
 
