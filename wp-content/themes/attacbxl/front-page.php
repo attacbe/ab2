@@ -79,7 +79,7 @@
         </div>
         <div class="panel-body">
           <p>
-            Attac est une asbl dont le double objectif est d'acquérir une connaissance critique de la mondialisation financière, et d'agir s'y opposer.
+            Attac est une asbl dont le double objectif est d'acquérir une connaissance critique de la mondialisation financière, et d'agir pour s'y opposer.
           </p>
           <div class="row section">
             <div class="col-sm-6">
