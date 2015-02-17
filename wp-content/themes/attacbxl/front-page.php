@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-md-8">
       <h3>
-        <a href="<?php echo home_url(); ?>/agenda/categorie/conferences/liste/?action=tribe_list&tribe_paged=1&tribe_event_display=past" class='section-header'>
+        <a href="<?php echo home_url(); ?>/agenda/categorie/conferences/liste/?action=tribe_list&tribe_paged=1&tribe_event_display=past&order=ASC" class='section-header'>
           Dernières conférences
         </a>
       </h3>
