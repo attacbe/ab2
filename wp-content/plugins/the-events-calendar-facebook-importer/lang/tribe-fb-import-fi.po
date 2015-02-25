@@ -1,0 +1,507 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Facebook Events 3.5\n"
+"POT-Creation-Date: 2014-09-26 12:53-0800\n"
+"PO-Revision-Date: 2014-11-25 14:29-0800\n"
+"Last-Translator: \n"
+"Language-Team: Modern Tribe, Inc. <pro@tri.be>\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin-views/import-page.php:8
+msgid "settings page"
+msgstr "asetusten sivu"
+
+#: ../admin-views/import-page.php:9
+msgid "Go take a look at your event(s)"
+msgstr "Käy katsomassa tapahtumiasi"
+
+#: ../admin-views/import-page.php:16 ../admin-views/settings-tab.php:14
+msgid "Import Facebook Events"
+msgstr "Tuo Facebook-tapahtumat"
+
+#: ../admin-views/import-page.php:20
+msgid "The following errors have occurred:"
+msgstr "Kohdattiin seuraavat virheet:"
+
+#: ../admin-views/import-page.php:27
+msgid "Please note that as a result, no events were successfully imported."
+msgstr "Huomaathan, että yhtään tapahtumaa ei onnistuttu tuomaan."
+
+#: ../admin-views/import-page.php:29
+msgid "Please note that other events have been successfully imported."
+msgstr "Huomaathan, että muut tapahtumat tuotiin onnistuneesti."
+
+#: ../admin-views/import-page.php:36
+#, php-format
+msgid "The selected event has been successfully imported."
+msgid_plural "The %d selected events have been successfully imported."
+msgstr[0] "Valittu tapahtuma tuotiin onnistuneesti."
+msgstr[1] "Valitut %d tapahtumaa tuotiin onnistuneesti."
+
+#: ../admin-views/import-page.php:45
+msgid "The following errors have occurred during importing images:"
+msgstr "Seuraavat virheet kohdattiin kuvia tuodessa:"
+
+#: ../admin-views/import-page.php:51
+msgid ""
+"Please note that this does not effect importing of associated events unless "
+"noted."
+msgstr ""
+"Tämä ei vaikuta liittyvien tapahtumien tuontiin, mikäli niin ei ilmoiteta."
+
+#: ../admin-views/import-page.php:56
+msgid "How to Import Facebook Events"
+msgstr "Kuinka tuoda Facebook-tapahtumia"
+
+#: ../admin-views/import-page.php:58
+#, php-format
+msgid ""
+"Select which events you want to import from specific Facebook Pages or Users "
+"by entering their details on the  %s. Return to this page to choose which of "
+"their events you would like to import."
+msgstr ""
+"Valitse mitkä tapahtumat haluat tuoda kirjoittamalla Facebook-sivun tai -"
+"käyttäjän tiedot kohtaan %s. Palaa tälle sivulle valitaksesi tapahtumat, "
+"jotka haluat tuoda."
+
+#: ../admin-views/import-page.php:60
+msgid ""
+"Since you've already setup some Facebook organization(s) or page(s) to "
+"import from, you can import their events below. Visit the settings page to "
+"modify the Facebook organization(s) or page(s) you want to import from."
+msgstr ""
+"Voit tuoda jo seuraavat tapahtumat, koska olet lisännyt Facebook-sivuja "
+"listallesi. Tarkasta asetukset muokataksesi sivuja, joilta haluat tuoda "
+"tapahtumia."
+
+#: ../admin-views/import-page.php:62
+msgid ""
+"You can also import any specific event by entering Facebook event IDs in the "
+"text area below."
+msgstr ""
+"Voit myös tuoda yksittäisen Facebook-tapahtuman lisäämällä sen ID:n alla "
+"olevaan kenttään."
+
+#: ../admin-views/import-page.php:63
+#, php-format
+msgid ""
+"You can determine an event's Facebook ID by looking at the URL of the event. "
+"For example, the ID of this event: %s would be %s"
+msgstr ""
+"Löydät tapahtuman ID:n sen URL-osoitteesta. Esimerkiksi ID tapahtumalle: %s "
+"on %s"
+
+#: ../admin-views/import-page.php:72
+msgid "Events from Facebook organizations(s) or page(s) you've added:"
+msgstr "Facebook-sivuilta lisäämäsi tapahtumat:"
+
+#: ../admin-views/import-page.php:78
+msgid "Import events by their Facebook ID:"
+msgstr "Tuo tapahtumia Facebook ID:n perusteella:"
+
+#: ../admin-views/import-page.php:81
+msgid "One event ID per line"
+msgstr "Yksi tapahtuman ID riviä kohden"
+
+#: ../admin-views/import-page.php:86
+msgid "Import events"
+msgstr "Tuo tapahtumia"
+
+#: ../admin-views/import-page.php:104
+msgid "Please select or enter the ID of at least one event to import"
+msgstr "Valitse tai kirjoita ainakin yhden tapahtuman ID"
+
+#: ../admin-views/settings-tab.php:15
+msgid "Getting Started"
+msgstr "Aloita tästä"
+
+#: ../admin-views/settings-tab.php:16
+msgid ""
+"You need a Facebook App ID and App Secret to access data via the Facebook "
+"Graph API to import your events from Facebook."
+msgstr ""
+"Tarvitset Facebook App ID:n ja App Secretin saadaksesi tapahtumien tuomiseen "
+"tarvittavat tiedot Facebook Graph API:n kautta."
+
+#: ../admin-views/settings-tab.php:18
+#, php-format
+msgid "%s to learn more about Facebook Apps"
+msgstr "%s oppiaksesi enemmän Facebook Appseista"
+
+#: ../admin-views/settings-tab.php:18 ../admin-views/settings-tab.php:19
+#: ../admin-views/settings-tab.php:37 ../admin-views/settings-tab.php:46
+msgid "Click here"
+msgstr "Paina tästä"
+
+#: ../admin-views/settings-tab.php:19
+#, php-format
+msgid "%s to view or create Facebook Apps"
+msgstr "%s katsoaksesi tai luodaksesi Facebook Appseja"
+
+#: ../admin-views/settings-tab.php:21
+msgid "Selecting pages or organizations to import events with"
+msgstr "Sivujen valitseminen tapahtumien tuontia varten"
+
+#: ../admin-views/settings-tab.php:22
+msgid ""
+"You can retrieve and import events belonging to a Facebook organization or a "
+"Facebook page. You will need the username(s) or ID of each organization or "
+"page that you want to fetch events from. We do not currently support "
+"retrieving events from personal profiles. If you want to import an event "
+"from an individual, you can do that with the event ID on the"
+msgstr ""
+"Voit hakea ja tuoda Facebook-sivulle kuuluvia tapahtumia. Tarvitset "
+"käyttäjänimen tai ID:n jokaiselle sivulle, jolta haluat tuoda tapahtumia. "
+"Tällä hetkellä ei ole mahdollista tuoda tapahtumia yksittäisen henkilön "
+"profiilista. Jos haluat tuoda yksittäisen henkilön tapahtuman, tee se "
+"käyttämällä tapahtuman ID:tä."
+
+#: ../admin-views/settings-tab.php:22
+msgid "Import: Facebook page"
+msgstr "Tuo: Facebook-sivu"
+
+#: ../admin-views/settings-tab.php:23
+#, php-format
+msgid ""
+"A page or organization's username or ID can be found in the URL used to "
+"access its profile. Modern Tribe's page is %s and the username is "
+"'ModernTribeInc'. If a page or organization doesn't have a username, you "
+"will see the ID (numerical) in the URL.</p>"
+msgstr ""
+"Sivun käyttäjänimi tai ID löytyy sen URL-osoitteesta. Modern Triben sivu on "
+"%s ja käyttäjänimi 'ModernTribeInc'. Jos sivulle ei ole asetettu "
+"käyttäjänimeä, löydät sen numeromuotoisen ID:n myöskin URL:stä.</p>"
+
+#: ../admin-views/settings-tab.php:32
+msgid "Account Settings"
+msgstr "Tilin asetukset"
+
+#: ../admin-views/settings-tab.php:36
+msgid "Facebook App ID"
+msgstr "Facebook App ID"
+
+#: ../admin-views/settings-tab.php:37
+#, php-format
+msgid "<p>%s to view or create your Facebook Apps"
+msgstr "<p>%s katsoaksesi tai luodaksesi Facebook Appin"
+
+#: ../admin-views/settings-tab.php:45
+msgid "Facebook App secret"
+msgstr "Facebook App secret"
+
+#: ../admin-views/settings-tab.php:46
+#, php-format
+msgid "<p>%s to view or create your App Secret"
+msgstr "<p>%s katsoaksesi tai luodaksesi App Secretin"
+
+#: ../admin-views/settings-tab.php:54
+msgid "Organization and page usernames / IDs to fetch events from"
+msgstr "Sivujen käyttäjänimet tai ID:t, joilta tapahtumat haetaan"
+
+#: ../admin-views/settings-tab.php:55
+msgid "Please put one entry per line."
+msgstr "Laita vain yksi tieto riviä kohti"
+
+#: ../admin-views/settings-tab.php:55
+msgid "Follow the instructions above to find usernames or IDs."
+msgstr "Noudata yllä olevia ohjeita löytääksesi käyttäjänimen tai ID:n"
+
+#: ../admin-views/settings-tab.php:55
+msgid ""
+"Events can only be fetched from organizations and pages, not individuals."
+msgstr "Tapahtumia voi hakea vain sivuilta, ei yksittäisiltä henkilöiltä."
+
+#: ../admin-views/settings-tab.php:64
+msgid "Import Settings"
+msgstr "Tuonnin asetukset"
+
+#: ../admin-views/settings-tab.php:68
+msgid "Default status to use for imported events"
+msgstr "Tuotujen tapahtumien oletustila"
+
+#: ../admin-views/settings-tab.php:69
+msgid "Published"
+msgstr "Julkaistu"
+
+#: ../admin-views/settings-tab.php:69
+msgid "Draft"
+msgstr "Luonnos"
+
+#: ../admin-views/settings-tab.php:69
+msgid "Pending Review"
+msgstr "Tarkastettavana"
+
+#: ../admin-views/settings-tab.php:75
+msgid "Enable Google Maps on imported events"
+msgstr "Salli Google Maps tuoduille tapahtumille"
+
+#: ../admin-views/settings-tab.php:76
+msgid ""
+"Check to enable maps for imported events in the frontend. Please enable "
+"Google Maps on the \"General\" tab to ensure your events will have map "
+"options."
+msgstr ""
+"Salli karttanäkymä tuoduille tapahtumille. Sinun täytyy ensin sallia Google "
+"Maps asetusten \"Yleiset\" -välilehdeltä."
+
+#: ../admin-views/settings-tab.php:83
+msgid "Auto import from Facebook"
+msgstr "Automaattinen tuonti Facebookista"
+
+#: ../admin-views/settings-tab.php:84
+msgid ""
+"If selected, events will be automatically imported from Facebook at the set "
+"interval."
+msgstr "Tapahtumat tuodaan Facebookista automaattisesti asetetuin väliajoin."
+
+#: ../admin-views/settings-tab.php:90
+msgid "Import frequency"
+msgstr "Tuonnin aikaväli"
+
+#: ../admin-views/settings-tab.php:91
+msgid ""
+"How often should we fetch events from Facebook. Only applies if Auto Import "
+"is set."
+msgstr ""
+"Kuinka usein tapahtumia haetaan Facebookista. Toimii vain jos automaattinen "
+"tuonti on päällä."
+
+#: ../admin-views/settings-tab.php:92
+msgid "Weekly"
+msgstr "Viikoittain"
+
+#: ../admin-views/settings-tab.php:92
+msgid "Daily"
+msgstr "Päivittäin"
+
+#: ../admin-views/settings-tab.php:92
+msgid "Twice daily"
+msgstr "Kahdesti päivässä"
+
+#: ../admin-views/settings-tab.php:92
+msgid "Hourly"
+msgstr "Tunneittain"
+
+#: ../the-events-calendar-facebook-importer.php:151
+#, php-format
+msgid ""
+"As of version 1.0.6, you need to enter your own Facebook App ID and App "
+"secret. Visit %s to generate yours. Enter your App ID and App Secret on the "
+"<a href='%s'>event's settings page</a>. "
+msgstr ""
+"Versiosta 1.0.6 eteenpäin tarvitset oman Facebook App ID:n ja App Secretin. "
+"Vieraile %s luodaksesi omasi. Lisää App ID:si ja App Secretisi <a "
+"href='%s'>tapahtumien asetuksiin</a>."
+
+#: ../the-events-calendar-facebook-importer.php:178
+#, php-format
+msgid ""
+"Signing up for a Facebook App ID and Secret only takes a second. Visit %s to "
+"create yours. "
+msgstr ""
+"Facebook App ID:n ja App Secretin hankkiminen kestää vain hetken. Vieraile "
+"%s luodaksesi omasi."
+
+#: ../the-events-calendar-facebook-importer.php:179
+#, php-format
+msgid "Visit %s to learn more about Facebook App Ids and Secrets. "
+msgstr "Vieraile %s oppiaksesi lisää Facebook App ID:stä ja App Secretistä."
+
+#: ../the-events-calendar-facebook-importer.php:180
+#, php-format
+msgid ""
+"You must enter a Facebook App ID and App Secret to continue importing events "
+"from Facebook. Visit %s to create yours. "
+msgstr ""
+"Aseta Facebook App ID ja App Secret jatkaaksesi tapahtumien tuontia. "
+"Vieraile %s hankkiaksesi omasi."
+
+#: ../the-events-calendar-facebook-importer.php:366
+msgid "Could not successfully import the image for unknown reasons."
+msgstr "Tuonti ei onnistunut tuntemattomasta syystä."
+
+#: ../the-events-calendar-facebook-importer.php:433
+msgid "The return argument should be object or id"
+msgstr "Paluuargumentin tulee olla objekti tai ID"
+
+#: ../the-events-calendar-facebook-importer.php:482
+msgid "Object type provided is invalid"
+msgstr "Annettu objektin tyyppi on viallinen"
+
+#: ../the-events-calendar-facebook-importer.php:738
+#, php-format
+msgid "%s. Event Image Error: Failed to save record into database."
+msgstr "%s. Virhe tapahtuman kuvassa: Tallentaminen tietokantaan epäonnistui."
+
+#: ../the-events-calendar-facebook-importer.php:741
+#, php-format
+msgid "%s. Event Image Error: The file cannot be saved."
+msgstr "%s. Virhe tapahtuman kuvassa: Tiedostoa ei voi tallentaa."
+
+#: ../the-events-calendar-facebook-importer.php:744
+#, php-format
+msgid "%s. Event Image Error: \"%s\" is not a valid image. %s"
+msgstr "%s. Virhe tapahtuman kuvassa: \"%s\" ei ole kelvollinen kuva. %s"
+
+#: ../the-events-calendar-facebook-importer.php:784
+#, php-format
+msgid "The event \"%s\" was already imported from Facebook."
+msgstr "Tapahtuma \"%s\" on jo aiemmin tuotu Facebookista."
+
+#: ../the-events-calendar-facebook-importer.php:788
+#, php-format
+msgid ""
+"Either the event with ID %s does not exist, is marked as private on Facebook "
+"or we couldn't reach the Facebook API"
+msgstr ""
+"Tapahtuman ID:tä %s ei joko ole olemassa, se on merkitty yksityiseksi "
+"Facebookissa tai emme päässeet käsiksi Facebok APIin."
+
+#: ../the-events-calendar-facebook-importer.php:874
+msgid "The Facebook event IDs provided must be numeric and one per line."
+msgstr ""
+"Facebook-tapahtuman ID:n pitää olla numeromuodossa. Laita jokainen ID omalle "
+"rivilleen."
+
+#: ../the-events-calendar-facebook-importer.php:889
+msgid "Import: Facebook"
+msgstr "Tuo: Facebook"
+
+#: ../the-events-calendar-facebook-importer.php:933
+#: ../the-events-calendar-facebook-importer.php:1181
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../the-events-calendar-facebook-importer.php:984
+msgid ""
+"No valid events were provided for import. The import failed as a result."
+msgstr ""
+"Tuontia varten ei annettu kelvollisia tapahtumia. Tuonti epäonnistui siitä "
+"syystä."
+
+#: ../the-events-calendar-facebook-importer.php:1010
+#, php-format
+msgctxt "%s is the name of the Facebook user or page"
+msgid "Events from %s:"
+msgstr "Tapahtumat kohteelta %s:"
+
+#: ../the-events-calendar-facebook-importer.php:1015
+#, php-format
+msgid ""
+"%s appears to be an individual. At this time events can only be fetched from "
+"organizations and pages, not individuals. If you would like to import an "
+"event from an individual, you can do so by entering the Facebook event ID in "
+"the box below."
+msgstr ""
+"%s näyttäisi olevan yksittäinen henkilö. Tällä hetkellä tapahtumia voidaan "
+"hakea vain Facebook-sivuilta. Jos haluat tuoda yksittäisen henkilön "
+"tapahtuman, tee se kirjaamalla tapahtuman ID alla olevaan laatikkoon."
+
+#: ../the-events-calendar-facebook-importer.php:1036
+#, php-format
+msgid "Facebook API Error: %s"
+msgstr "Facebook API virhe: %s"
+
+#: ../the-events-calendar-facebook-importer.php:1065
+msgid "(previously imported)"
+msgstr "(tuotu aiemmin)"
+
+#: ../the-events-calendar-facebook-importer.php:1079
+#, php-format
+msgctxt "%s is the name of the Facebook user or page"
+msgid "%s does not have any Facebook events"
+msgstr "%s ei ole luonut tapahtumia."
+
+#: ../the-events-calendar-facebook-importer.php:1151
+msgid "Once Weekly"
+msgstr "Kerran viikossa"
+
+#: ../the-events-calendar-facebook-importer.php:1172
+msgid "Import"
+msgstr "Tuo"
+
+#: ../the-events-calendar-facebook-importer.php:1190
+msgid "Facebook Events"
+msgstr "Facebook-tapahtumat"
+
+#: ../the-events-calendar-facebook-importer.php:1205
+msgid "Settings"
+msgstr "Asetukset"
+
+#: ../the-events-calendar-facebook-importer.php:1251
+msgid "The Events Calendar"
+msgstr "Tapahtumakalenteri"
+
+#: ../the-events-calendar-facebook-importer.php:1252
+#, php-format
+msgid ""
+"To begin using The Events Calendar: Facebook Events, please install the "
+"latest version of %s."
+msgstr ""
+"Asenna uusin %s-versio aloittaaksesi The Events Calendar: Facebook Eventsin "
+"käyttämisen."
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:9
+#: ../vendor/pue-client/admin-views/license-key.view.php:13
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:291
+msgid "License Key"
+msgstr "Lisenssiavain"
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:10
+msgid "A valid license key is required for support and updates."
+msgstr "Tukea ja päivityksiä varten tarvitaan voimassa oleva lisenssiavain."
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:16
+msgid "Replace empty fields"
+msgstr "Korvaa tyhjät kentät"
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:25
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:292
+msgid "A valid license key is required for support and updates"
+msgstr "Tukea ja päivityksiä varten tarvitaan voimassa oleva lisenssiavain"
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:360
+msgid "License key(s) updated."
+msgstr "Lisenssiavain päivitetty."
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:400
+msgid "Sorry, key validation server is not available."
+msgstr ""
+"Olemme pahoillamme, lisenssiavaimen todentamispalvelin ei ole käytössä."
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:402
+msgid "Sorry, this key is expired."
+msgstr "Olemme pahoillamme, avain on vanhentunut."
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:404
+msgid "Sorry, this key is out of installs."
+msgstr "Olemme pahoillamme, avaimen asennukset on käytetty."
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:406
+msgid "Sorry, this key is not valid."
+msgstr "Olemme pahoillamme, avain ei ole kelvollinen."
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:409
+#, php-format
+msgid "Valid Key! Expires on %s"
+msgstr "Toimiva avain! Lisenssi päättyy %s"
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:413
+#, php-format
+msgid ""
+"Hmmm... something's wrong with this validator. Please contact <a href=\"%s"
+"\">support.</a>"
+msgstr ""
+"Hmm... jotain meni vikaan todennuksessa. Ota yhteyttä <a href=\"%s\">tukeen."
+"</a>"

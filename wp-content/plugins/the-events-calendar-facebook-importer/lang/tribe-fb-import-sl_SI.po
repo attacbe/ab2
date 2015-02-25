@@ -1,0 +1,508 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Facebook Events 3.5\n"
+"POT-Creation-Date: 2014-07-17 16:50-0800\n"
+"PO-Revision-Date: 2014-09-11 13:10-0800\n"
+"Last-Translator: \n"
+"Language-Team: Modern Tribe, Inc. <pro@tri.be>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin-views/import-page.php:8
+msgid "settings page"
+msgstr "stran z nastavitvami"
+
+#: ../admin-views/import-page.php:9
+msgid "Go take a look at your event(s)"
+msgstr "Pojdite in poglejte svoj dogodek oz. dogodke"
+
+#: ../admin-views/import-page.php:16 ../admin-views/settings-tab.php:14
+msgid "Import Facebook Events"
+msgstr "Uvozi Facebook dogodke"
+
+#: ../admin-views/import-page.php:20
+msgid "The following errors have occurred:"
+msgstr "Prišlo je do naslednjih napak:"
+
+#: ../admin-views/import-page.php:27
+msgid "Please note that as a result, no events were successfully imported."
+msgstr "Vzemite v vednost, da kot rezultat tega ni bil uvožen noben dogodek."
+
+#: ../admin-views/import-page.php:29
+msgid "Please note that other events have been successfully imported."
+msgstr "Ostali dogodki so bili uspešno uvoženi."
+
+#: ../admin-views/import-page.php:36
+#, php-format
+msgid "The selected event has been successfully imported."
+msgid_plural "The %d selected events have been successfully imported."
+msgstr[0] "Izbrani dogodek je bil uspešno uvožen"
+msgstr[1] "Izbrani %d dogodki so bili uspešno uvoženi."
+
+#: ../admin-views/import-page.php:45
+msgid "The following errors have occurred during importing images:"
+msgstr "Med uvozom fotografij je prišlo do naslednjih napak:"
+
+#: ../admin-views/import-page.php:51
+msgid ""
+"Please note that this does not effect importing of associated events unless "
+"noted."
+msgstr ""
+"To ne bo vplivalo na uvoz podobnih dogodkov, razen če je bilo tako sporočeno."
+
+#: ../admin-views/import-page.php:56
+msgid "How to Import Facebook Events"
+msgstr "Kako uvoziti dogodke iz Facebooka"
+
+#: ../admin-views/import-page.php:58
+#, php-format
+msgid ""
+"Select which events you want to import from specific Facebook Pages or Users "
+"by entering their details on the  %s. Return to this page to choose which of "
+"their events you would like to import."
+msgstr ""
+"Izberite katere dogodke želite uvoziti iz specifičnih Facebook strani ali "
+"uporabnikov tako da vnesete njihove podatke v %s. Vrnite se nazaj na to "
+"stran, da boste izbrali katere izmed njihovih dogodkov bi radi uvozili."
+
+#: ../admin-views/import-page.php:60
+msgid ""
+"Since you've already setup some Facebook organization(s) or page(s) to "
+"import from, you can import their events below. Visit the settings page to "
+"modify the Facebook organization(s) or page(s) you want to import from."
+msgstr ""
+"Ker ste že nastavili nekaj Facebook strani oz. profilov za uvoz, lahko "
+"spodaj uvozite njihove dogodke. Obiščite nastavitve, da spreminjate Facebook "
+"strani oz. profile izmed katerih bi želeli uvažati."
+
+#: ../admin-views/import-page.php:62
+msgid ""
+"You can also import any specific event by entering Facebook event IDs in the "
+"text area below."
+msgstr ""
+"Uvozite lahko tudi katerikoli posamičen dogodek z vnosom 'Facebook event ID' "
+"v polje z besedilom spodaj."
+
+#: ../admin-views/import-page.php:63
+#, php-format
+msgid ""
+"You can determine an event's Facebook ID by looking at the URL of the event. "
+"For example, the ID of this event: %s would be %s"
+msgstr ""
+"'Facebook event ID' lahko določite tako, da pogledate v URL povezavo "
+"dogodka. Naprimer, ID tega dogodka: %s bi bil %s."
+
+#: ../admin-views/import-page.php:72
+msgid "Events from Facebook organizations(s) or page(s) you've added:"
+msgstr "Dogodki Facebook strani oz. profilov, ki ste jih dodali:"
+
+#: ../admin-views/import-page.php:78
+msgid "Import events by their Facebook ID:"
+msgstr "Uvozi dogodke s 'Facebook ID':"
+
+#: ../admin-views/import-page.php:81
+msgid "One event ID per line"
+msgstr "En 'Facebook event ID' na vrstico"
+
+#: ../admin-views/import-page.php:86
+msgid "Import events"
+msgstr "Uvozi dogodke"
+
+#: ../admin-views/import-page.php:104
+msgid "Please select or enter the ID of at least one event to import"
+msgstr "Prosimo izberite oz. vnesite ID vsaj enega dogodka za uvoz."
+
+#: ../admin-views/settings-tab.php:15
+msgid "Getting Started"
+msgstr "Začetek"
+
+#: ../admin-views/settings-tab.php:16
+msgid ""
+"You need a Facebook App ID and App Secret to access data via the Facebook "
+"Graph API to import your events from Facebook."
+msgstr ""
+"Potrebujete 'Facebook App ID' in 'App Secret', da lahko dostopate do "
+"podatkov preko 'Facebook Graph API' za uvoz vaših dogodkov iz Facebooka."
+
+#: ../admin-views/settings-tab.php:18
+#, php-format
+msgid "%s to learn more about Facebook Apps"
+msgstr "%s, da se naučite več o Facebookovih aplikacijah"
+
+#: ../admin-views/settings-tab.php:18 ../admin-views/settings-tab.php:19
+#: ../admin-views/settings-tab.php:37 ../admin-views/settings-tab.php:46
+msgid "Click here"
+msgstr "Kliknite tukaj"
+
+#: ../admin-views/settings-tab.php:19
+#, php-format
+msgid "%s to view or create Facebook Apps"
+msgstr "%s za ogled oz. ustvarjanje nove Facebook aplikacije"
+
+#: ../admin-views/settings-tab.php:21
+msgid "Selecting pages or organizations to import events with"
+msgstr "Izbiranje strani oz. profilov za uvoz dogodkov"
+
+#: ../admin-views/settings-tab.php:22
+msgid ""
+"You can retrieve and import events belonging to a Facebook organization or a "
+"Facebook page. You will need the username(s) or ID of each organization or "
+"page that you want to fetch events from. We do not currently support "
+"retrieving events from personal profiles. If you want to import an event "
+"from an individual, you can do that with the event ID on the"
+msgstr ""
+"Prenesete in uvozite lahko dogodke, ki pripadajo Facebook organizaciji oz. "
+"strani. Potrebovali boste uporabniško ime ali ID vsake izmed organizacij oz. "
+"strani, da bi lahko pridobili dogodke. Trenutno ne podpiramo pridobivanja "
+"dogodkov iz osebnih profilov. Če želite uvoziti dogodek iz osebnega profila, "
+"lahko to storite z 'event ID' na"
+
+#: ../admin-views/settings-tab.php:22
+msgid "Import: Facebook page"
+msgstr "Uvoz: Facebook stran"
+
+#: ../admin-views/settings-tab.php:23
+#, php-format
+msgid ""
+"A page or organization's username or ID can be found in the URL used to "
+"access its profile. Modern Tribe's page is %s and the username is "
+"'ModernTribeInc'. If a page or organization doesn't have a username, you "
+"will see the ID (numerical) in the URL.</p>"
+msgstr ""
+"Uporabniško ime oz. ID strani ali organizacije lahko najdete v URL povezavi, "
+"s katero dostopate do njihove strani. Stran Modern Tribe je %s, uporabniško "
+"ime pa 'ModernTribeInc'. Če stran oz. organizacija nima uporabniškega imena, "
+"boste v URL povezavi videli ID (številčna)."
+
+#: ../admin-views/settings-tab.php:32
+msgid "Account Settings"
+msgstr "Nastavitve računa"
+
+#: ../admin-views/settings-tab.php:36
+msgid "Facebook App ID"
+msgstr "Facebook App ID"
+
+#: ../admin-views/settings-tab.php:37
+#, php-format
+msgid "<p>%s to view or create your Facebook Apps"
+msgstr "<p>%s da ustvarite oz. si ogledate vaše Facebook aplikacije."
+
+#: ../admin-views/settings-tab.php:45
+msgid "Facebook App secret"
+msgstr "Facebook App secret"
+
+#: ../admin-views/settings-tab.php:46
+#, php-format
+msgid "<p>%s to view or create your App Secret"
+msgstr "<p>%s da ustvarite oz. si ogledate vaše 'App Secret'"
+
+#: ../admin-views/settings-tab.php:54
+msgid "Organization and page usernames / IDs to fetch events from"
+msgstr "Uporabniška imena organizacij in strani / ID za uvoz dogodkov"
+
+#: ../admin-views/settings-tab.php:55
+msgid "Please put one entry per line."
+msgstr "Prosimo vnesite zgolj po en vnos v vsako vrstico."
+
+#: ../admin-views/settings-tab.php:55
+msgid "Follow the instructions above to find usernames or IDs."
+msgstr "Sledite navodilom zgoraj, da bi našli uporabniška imena oz. ID."
+
+#: ../admin-views/settings-tab.php:55
+msgid ""
+"Events can only be fetched from organizations and pages, not individuals."
+msgstr ""
+"Dogodki so lahko pridobljeni zgolj od organizacij oz. strani, ne osebnih "
+"profilov."
+
+#: ../admin-views/settings-tab.php:64
+msgid "Import Settings"
+msgstr "Uvoz nastavitev"
+
+#: ../admin-views/settings-tab.php:68
+msgid "Default status to use for imported events"
+msgstr "Privzeto stanje za uvožene dogodke"
+
+#: ../admin-views/settings-tab.php:69
+msgid "Published"
+msgstr "Objavljeno"
+
+#: ../admin-views/settings-tab.php:69
+msgid "Draft"
+msgstr "Osnutek"
+
+#: ../admin-views/settings-tab.php:69
+msgid "Pending Review"
+msgstr "V odobritvi"
+
+#: ../admin-views/settings-tab.php:75
+msgid "Enable Google Maps on imported events"
+msgstr "Omogoči Google zemljevide na uvoženih dogodkih"
+
+#: ../admin-views/settings-tab.php:76
+msgid ""
+"Check to enable maps for imported events in the frontend. Please enable "
+"Google Maps on the \"General\" tab to ensure your events will have map "
+"options."
+msgstr ""
+"Označite, da omogočite zemljevide za uvožene dogodke v vmesniku. Prosimo "
+"omogočite Google zemljevide v zavihku \"General\", da zagotovite, da bodo "
+"vaši dogodki imeli možnost za dodajanje zemljevida."
+
+#: ../admin-views/settings-tab.php:83
+msgid "Auto import from Facebook"
+msgstr "Uvozi samodejno iz Facebooka"
+
+#: ../admin-views/settings-tab.php:84
+msgid ""
+"If selected, events will be automatically imported from Facebook at the set "
+"interval."
+msgstr ""
+"Če je polje označeno bodo dogodki samodejno uvoženi iz Facebooka ob "
+"nastavljenem intervalu."
+
+#: ../admin-views/settings-tab.php:90
+msgid "Import frequency"
+msgstr "Frekvenca uvažanja"
+
+#: ../admin-views/settings-tab.php:91
+msgid ""
+"How often should we fetch events from Facebook. Only applies if Auto Import "
+"is set."
+msgstr ""
+"Kako pogosto naj pridobimo dogodke iz Facebooka. Velja zgolj če je "
+"nastavljen samodejni uvoz."
+
+#: ../admin-views/settings-tab.php:92
+msgid "Weekly"
+msgstr "Tedensko"
+
+#: ../admin-views/settings-tab.php:92
+msgid "Daily"
+msgstr "Dnevno"
+
+#: ../admin-views/settings-tab.php:92
+msgid "Twice daily"
+msgstr "Dvakrat dnevno"
+
+#: ../admin-views/settings-tab.php:92
+msgid "Hourly"
+msgstr "Vsako uro"
+
+#: ../the-events-calendar-facebook-importer.php:151
+#, php-format
+msgid ""
+"As of version 1.0.6, you need to enter your own Facebook App ID and App "
+"secret. Visit %s to generate yours. Enter your App ID and App Secret on the "
+"<a href='%s'>event's settings page</a>. "
+msgstr ""
+"Z različico 1.0.6, morale vnesti svoj 'Facebook App ID' in 'App secret'. "
+"Obiščite %s, da ustvarite svojega. Vnesite svoj 'App ID' in 'App Secret' na "
+"<a href='%s'>nastavitveni strani dogodka.</a>. "
+
+#: ../the-events-calendar-facebook-importer.php:178
+#, php-format
+msgid ""
+"Signing up for a Facebook App ID and Secret only takes a second. Visit %s to "
+"create yours. "
+msgstr ""
+"Prijava za 'Facebook App ID' in 'Facebook Secret' traja zgolj trenutek. "
+"Obiščite %s, da ustvarite svojega."
+
+#: ../the-events-calendar-facebook-importer.php:179
+#, php-format
+msgid "Visit %s to learn more about Facebook App Ids and Secrets. "
+msgstr ""
+"Obiščite %s, da boste izvedeli več o 'Facebook App ID' in 'App Secrets'. "
+
+#: ../the-events-calendar-facebook-importer.php:180
+#, php-format
+msgid ""
+"You must enter a Facebook App ID and App Secret to continue importing events "
+"from Facebook. Visit %s to create yours. "
+msgstr ""
+"Vnesite 'Facebook App ID' in 'App Secret', da lahko nadaljujete z uvozom "
+"dogodkov iz Facebooka. Obiščite %s, da ustvarite svojo. "
+
+#: ../the-events-calendar-facebook-importer.php:366
+msgid "Could not successfully import the image for unknown reasons."
+msgstr "Slike ni bilo mogoče uvoziti iz neznanih razlogov."
+
+#: ../the-events-calendar-facebook-importer.php:433
+msgid "The return argument should be object or id"
+msgstr "Povratni argumet naj bo predmet ali id."
+
+#: ../the-events-calendar-facebook-importer.php:482
+msgid "Object type provided is invalid"
+msgstr "Tip predmeta je neveljaven."
+
+#: ../the-events-calendar-facebook-importer.php:749
+#, php-format
+msgid "%s. Event Image Error: Failed to save record into database."
+msgstr "%s. Napaka slike dogodka: Neuspešno zapisovanje v podatkovno bazo."
+
+#: ../the-events-calendar-facebook-importer.php:752
+#, php-format
+msgid "%s. Event Image Error: The file cannot be saved."
+msgstr "%s. Napaka slike dogodka: Datoteka ni bila shranjena."
+
+#: ../the-events-calendar-facebook-importer.php:755
+#, php-format
+msgid "%s. Event Image Error: \"%s\" is not a valid image. %s"
+msgstr "%s. Napaka slike dogodka: \"%s\" ni veljavna fotografija. %s"
+
+#: ../the-events-calendar-facebook-importer.php:791
+#, php-format
+msgid "The event \"%s\" was already imported from Facebook."
+msgstr "Dogodek \"%s\" je že bil uvožen iz Facebooka."
+
+#: ../the-events-calendar-facebook-importer.php:795
+#, php-format
+msgid ""
+"Either the event with ID %s does not exist, is marked as private on Facebook "
+"or we couldn't reach the Facebook API"
+msgstr ""
+"Dogodek z ID %s ne obstaja ali pa je označen kot zaseben na Facebooku ali pa "
+"nismo mogli prodibiti 'Facebook API'"
+
+#: ../the-events-calendar-facebook-importer.php:854
+msgid "The Facebook event IDs provided must be numeric and one per line."
+msgstr ""
+"ID dogodka na Facebooku more biti vpisan v številčni obliki in sicer eden v "
+"vsaki vrstici."
+
+#: ../the-events-calendar-facebook-importer.php:869
+msgid "Import: Facebook"
+msgstr "Uvoz: Facebook"
+
+#: ../the-events-calendar-facebook-importer.php:913
+#: ../the-events-calendar-facebook-importer.php:1161
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../the-events-calendar-facebook-importer.php:964
+msgid ""
+"No valid events were provided for import. The import failed as a result."
+msgstr "Ni bilo veljavnih dogodkov za uvoz. Uvoz je zaradi tega neuspešen."
+
+#: ../the-events-calendar-facebook-importer.php:990
+#, php-format
+msgctxt "%s is the name of the Facebook user or page"
+msgid "Events from %s:"
+msgstr "Dogodki od %s:"
+
+#: ../the-events-calendar-facebook-importer.php:995
+#, fuzzy, php-format
+msgid ""
+"%s appears to be an individual. At this time events can only be fetched from "
+"organizations and pages, not individuals. If you would like to import an "
+"event from an individual, you can do so by entering the Facebook event ID in "
+"the box below."
+msgstr ""
+"%s je osebni profil. Trenutno so dogodki lahko pridobljeni zgolj od "
+"organizacij ali strani, ne pa tudi iz osebnih profilov."
+
+#: ../the-events-calendar-facebook-importer.php:1016
+#, php-format
+msgid "Facebook API Error: %s"
+msgstr "Facebook API Error: %s"
+
+#: ../the-events-calendar-facebook-importer.php:1045
+msgid "(previously imported)"
+msgstr "(nedavno uvoženi)"
+
+#: ../the-events-calendar-facebook-importer.php:1059
+#, php-format
+msgctxt "%s is the name of the Facebook user or page"
+msgid "%s does not have any Facebook events"
+msgstr "%s nima Facebook dogodkov"
+
+#: ../the-events-calendar-facebook-importer.php:1131
+msgid "Once Weekly"
+msgstr "Enkrat tedensko"
+
+#: ../the-events-calendar-facebook-importer.php:1152
+msgid "Import"
+msgstr "Uvoz"
+
+#: ../the-events-calendar-facebook-importer.php:1170
+msgid "Facebook Events"
+msgstr "Facebook dogodki"
+
+#: ../the-events-calendar-facebook-importer.php:1185
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: ../the-events-calendar-facebook-importer.php:1231
+msgid "The Events Calendar"
+msgstr "The Events Calendar"
+
+#: ../the-events-calendar-facebook-importer.php:1232
+#, php-format
+msgid ""
+"To begin using The Events Calendar: Facebook Events, please install the "
+"latest version of %s."
+msgstr ""
+"Za uporabo The Events Calendar: Facebook Events, prosim naložite najnovejšo "
+"različico %s."
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:9
+#: ../vendor/pue-client/admin-views/license-key.view.php:13
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:291
+msgid "License Key"
+msgstr ""
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:10
+msgid "A valid license key is required for support and updates."
+msgstr ""
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:16
+msgid "Replace empty fields"
+msgstr ""
+
+#: ../vendor/pue-client/admin-views/license-key.view.php:25
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:292
+msgid "A valid license key is required for support and updates"
+msgstr ""
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:360
+msgid "License key(s) updated."
+msgstr ""
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:400
+msgid "Sorry, key validation server is not available."
+msgstr ""
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:402
+msgid "Sorry, this key is expired."
+msgstr ""
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:404
+msgid "Sorry, this key is out of installs."
+msgstr ""
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:406
+msgid "Sorry, this key is not valid."
+msgstr ""
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:409
+#, php-format
+msgid "Valid Key! Expires on %s"
+msgstr ""
+
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:413
+#, php-format
+msgid ""
+"Hmmm... something's wrong with this validator. Please contact <a href=\"%s"
+"\">support.</a>"
+msgstr ""
