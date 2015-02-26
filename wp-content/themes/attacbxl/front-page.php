@@ -15,6 +15,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
+      <?php get_template_part('templates/components/media-featured') ?>
+
       <h3>
         <a href="<?php echo home_url(); ?>/agenda/categorie/conferences/liste/?action=tribe_list&tribe_paged=1&tribe_event_display=past&order=ASC" class='section-header'>
           Dernières conférences
@@ -75,7 +77,7 @@
 
 
       <?php get_template_part('templates/components/newsletter-widget') ?>
-      
+
       <div class="panel panel-grey">
         <div class="panel-heading">
           <h5>A propos d'Attac bruxelles 2</h5>

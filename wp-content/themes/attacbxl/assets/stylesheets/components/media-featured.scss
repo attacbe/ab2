@@ -1,0 +1,49 @@
+.media-featured {
+  background: $brand-primary;
+  border-radius: 3px;
+  .media-left {
+    padding-left: 0;
+    min-height: 300px;
+  }
+}
+
+.media-featured__body {
+  padding: 20px;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+}
+
+.media-featured__heading {
+  margin-top: 0;
+}
+
+.home .media-featured {
+  margin-top: 24px !important;
+}
+
+// CENTERED BACKGROUND
+// We use this to center an image inside a div. e.g. avatars, ...
+// It requires to be linked to a div that has a (min-)height
+// --------------------------------------------------
+.centered-background {
+  background-color: #efefef;
+  background-position: 50%;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    // background-image is inline
+    width: 100%;
+
+    html.backgroundsize & {
+      display: none;
+    }
+  }
+
+  .no-backgroundsize & {
+    background-image: none !important;
+  }
+}

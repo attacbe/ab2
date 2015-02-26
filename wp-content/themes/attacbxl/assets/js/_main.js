@@ -22,6 +22,8 @@ var Roots = {
   // All pages
   common: {
     init: function() {
+      var featuredItems = $('.centered-background');
+      featuredItems.height(featuredItems.parent().height());
     }
   },
   // Home page
