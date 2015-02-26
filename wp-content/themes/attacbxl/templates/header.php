@@ -10,7 +10,6 @@
       <a href='<?php echo esc_url(home_url('/')); ?>' class='navbar-brand'><?php bloginfo('name'); ?></a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <?php
         if (has_nav_menu('primary_navigation')) :
