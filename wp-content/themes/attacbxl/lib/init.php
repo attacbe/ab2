@@ -37,6 +37,21 @@ function roots_setup() {
 add_action('after_setup_theme', 'roots_setup');
 
 /**
+ * Fix for boostrap top nav when logged in
+ */
+
+function mbe_wp_head(){
+  echo '<style>'.PHP_EOL;
+  echo 'body{ padding-top: 70px !important; }'.PHP_EOL;
+  // Using custom CSS class name.
+  echo 'body.body-logged-in .navbar-fixed-top{ top: 32px !important; }'.PHP_EOL;
+  // Using WordPress default CSS class name.
+  echo 'body.logged-in .navbar-fixed-top{ top: 32px !important; }'.PHP_EOL;
+  echo '</style>'.PHP_EOL;
+}
+add_action('wp_head', 'mbe_wp_head');
+
+/**
  * Register sidebars
  */
 function roots_widgets_init() {
