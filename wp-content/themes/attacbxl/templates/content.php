@@ -4,6 +4,10 @@
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
   <div class="entry-summary">
-    <?php the_excerpt(); ?>
+    <?php if ( get_post_format() == 'video' ) { ?>
+        <?php the_content(); ?>
+    <?php } else { ?>
+        <?php the_excerpt(); ?>
+    <?php  } ?>
   </div>
 </article>
