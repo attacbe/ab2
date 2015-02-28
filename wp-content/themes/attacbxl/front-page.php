@@ -49,33 +49,18 @@
           <?php get_template_part('templates/components/articles-list') ?>
         </div>
         <div class="col-sm-6">
-          <?php $page = get_page_by_title('Alter sommet'); ?>
-              <h3>
-                <a href="<?php echo get_permalink($page->ID); ?>" class='section-header'>
-                  <?php echo get_the_title($page->ID); ?>
-                </a>
-              </h3>
-            <a href="<?php echo get_permalink($page->ID); ?>">
-              <?php echo get_the_post_thumbnail( $page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+          <h3>
+            <a href="<?php echo home_url(); ?>/events" class='section-header'>
+              Prochains évènements
             </a>
-          <?php echo wp_trim_words($page->post_content, $num_words = 50, $more = null );  ?>
-          <p>
-            <a href="<?php echo get_permalink($page->ID); ?>">
-              En savoir plus
-            </a>
-          </p>
+          </h3>
+          <?php get_template_part('templates/components/upcoming-events') ?>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <h3>
-        <a href="<?php echo home_url(); ?>/events" class='section-header'>
-          Prochains évènements
-        </a>
-      </h3>
-      <?php get_template_part('templates/components/upcoming-events') ?>
 
-
+      <div class="fb-like-box" data-href="https://www.facebook.com/ATTAC.Bruxelles2" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
       <?php get_template_part('templates/components/newsletter-widget') ?>
 
       <div class="panel panel-grey">
@@ -114,6 +99,26 @@
           </div>
         </div>
       </div>
+
+      <?php $page = get_page_by_title('Alter sommet'); ?>
+      <div class="panel panel-grey">
+        <div class="panel-heading">
+          <h5><?php echo get_the_title($page->ID); ?></h5>
+        </div>
+        <div class="panel-body">
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              <?php echo get_the_post_thumbnail( $page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+            </a>
+          <?php echo wp_trim_words($page->post_content, $num_words = 50, $more = null );  ?>
+          <p>
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              En savoir plus
+            </a>
+          </p>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </div>

@@ -9,11 +9,6 @@
 ?>
 
 <?php if (count($posts_array) > 0): ?>
-  <h3>
-    <a href="<?php echo home_url(); ?>/articles" class='section-header'>
-      Actions à la une
-    </a>
-  </h3>
 
 
   <?php
