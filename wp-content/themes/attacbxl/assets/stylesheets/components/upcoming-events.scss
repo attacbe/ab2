@@ -8,5 +8,15 @@
 
 .widget.tribe-events-list-widget .vcalendar {
   padding-left: 0;
-  
+}
+
+.media-heading {
+  h5 {
+    margin-top: 0;
+  }
+}
+
+.media-left a {
+  display: inline-block;
+  min-width: 64px;
 }

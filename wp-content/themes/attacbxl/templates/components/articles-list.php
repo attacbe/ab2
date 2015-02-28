@@ -12,13 +12,6 @@
     setup_postdata($post);
   ?>
   <div class='media'>
-    <?php if ( has_post_thumbnail() ) { ?>
-      <div class="media-left media-middle">
-        <a href="<?php the_permalink(); ?>">
-          <?php the_post_thumbnail('thumbnail'); ?>
-        </a>
-      </div>
-    <?php }?>
     <div class="media-body">
       <?php the_date() ?>
       <a href="<?php the_permalink(); ?>" class='media-heading'>
