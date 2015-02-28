@@ -1,9 +1,14 @@
 .media-featured {
   background: $brand-primary;
   border-radius: 3px;
+
   .media-left {
     padding-left: 0;
     min-height: 300px;
+  }
+
+  .centered-background {
+    opacity: .6;
   }
 }
 
