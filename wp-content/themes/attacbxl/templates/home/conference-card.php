@@ -1,16 +1,19 @@
-<div class="col-sm-6">
-  <div class="thumbnail">
+<div class="col-xs-12 posts-list__item">
+  <div class="row">
     <?php if ( has_post_thumbnail() ) { ?>
-      <a href="<?php the_permalink(); ?>">
-        <?php the_post_thumbnail('event-card-thumb'); ?>
-      </a>
+      <div class="col-sm-5">
+        <a href="<?php the_permalink(); ?>" class='media-object thumbnail'>
+          <?php the_post_thumbnail('event-card-thumb'); ?>
+        </a>
+      </div>
     <?php }?>
-    <div class="caption">
+    <div class="col-sm-7">
       <a href="<?php the_permalink(); ?>">
-        <h5>
+        <h4 class='media-heading'>
           <?php the_title(); ?>
-        </h5>
+        </h4>
       </a>
+      <?php the_excerpt(); ?>
     </div>
   </div>
 </div>
