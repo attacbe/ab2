@@ -59,6 +59,15 @@ Further configuration is available under the Link Library Settings panel.
 
 == Changelog ==
 
+= 5.9.4 =
+* Fix monthly update mechanism. Setting number and leaving for a few days to make sure update occurs
+
+= 5.9.3.2 =
+* Corrected unexpected output on plugin reactivation
+
+= 5.9.3.1 =
+* Corrects activation error for new users
+
 = 5.9.3 =
 * Added ability to approve user-submitted links automatically if they provide a valid reciprocal link
 
