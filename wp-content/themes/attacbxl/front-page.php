@@ -118,6 +118,24 @@
         </div>
       </div>
 
+      <?php $page = get_page_by_title('Réseau pour la Justice Fiscale'); ?>
+      <div class="panel panel-grey">
+        <div class="panel-heading">
+          <h5><?php echo get_the_title($page->ID); ?></h5>
+        </div>
+        <div class="panel-body">
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              <?php echo get_the_post_thumbnail( $page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+            </a>
+          <?php echo wp_trim_words($page->post_content, $num_words = 50, $more = null );  ?>
+          <p>
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              En savoir plus
+            </a>
+          </p>
+        </div>
+      </div>
+
 
     </div>
   </div>
