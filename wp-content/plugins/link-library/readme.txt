@@ -3,7 +3,7 @@ Contributors: jackdewey
 Donate link: http://ylefebvre.ca/wordpress-plugins/link-library
 Tags: link, list, directory, page, library, AJAX, RSS, feeds, inline, search, paging, add, submit, import, batch, pop-up
 Requires at least: 3.0
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 
 The purpose of this plugin is to add the ability to output a list of link categories and a complete list of links with notes and descriptions.
@@ -58,6 +58,43 @@ In addition to specifying a library, categories to be displayed can be specified
 Further configuration is available under the Link Library Settings panel.
 
 == Changelog ==
+
+= 5.9.6.1 =
+* Improvements to alphabetic category filter to play nice with the search feature
+
+= 5.9.6 =
+* Fixed for add_query_arg potential XSS vulnerabilty issue
+
+= 5.9.5.5 =
+* Adds message to invite users to participate to Link Library User Survey. Message can be dismissed.
+
+= 5.9.5.4 =
+* Added new alphabetic category filter feature, configurable under Common Library Settings
+
+= 5.9.5.3 =
+* Adds a new shortcode [link-library-count] to display the number of links that a library will show
+
+= 5.9.5.2 =
+* Added visual editor for large description
+* Allow HTML code to be part of large description
+
+= 5.9.5.1 =
+* Added Serbian translation
+
+= 5.9.5 =
+* Correct problem with user-submission form, displaying a choice for user-defined categories even if configured not to allow them
+
+= 5.9.4.4 =
+* Additional fix for 'Show link name when no image is assigned' option
+
+= 5.9.4.3 =
+* Fix for 'Show link name when no image is assigned' option
+
+= 5.9.4.2 =
+* Fix for new functionality introduced in 5.9.4.2 when using HTML Get with category names method
+
+= 5.9.4.1 =
+* Added new option for category drop-down list to go directly to selection without needed visitor to press Go button
 
 = 5.9.4 =
 * Fix monthly update mechanism. Setting number and leaving for a few days to make sure update occurs
@@ -676,6 +713,13 @@ Further configuration is available under the Link Library Settings panel.
 * Fixed problem where settings became "sticky" until you went out of plugin admin and came back after resetting them
 
 == Frequently Asked Questions ==
+
+= Who are the translators behind Link Library? =
+
+* French Translation courtesy of Luc Capronnier
+* Danish Translation courtesy of [GeorgWP](http://wordpress.blogos.dk)
+* Italian Translation courtesy of Gianni Diurno
+* Serbian Translation courtesy of [Ogi Djuraskovic, firstsiteguide.com](http://firstsiteguide.com)
 
 = Where do I find my category IDs to place in the "Categories to be Displayed" and "Categories to be Excluded" fields? =
 

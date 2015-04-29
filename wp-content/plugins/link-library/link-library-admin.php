@@ -469,12 +469,14 @@ class link_library_plugin_admin {
 		//add_filter( 'attachment_fields_to_save', array( $this, 'save_custom_media_fields' ), null, 2 );
 
 		$genoptions = get_option( 'LinkLibraryGeneral' );
+		$genoptions = wp_parse_args( $genoptions, ll_reset_gen_settings( 'return' ) );
+		extract( $genoptions );
 
 		if ( !empty( $genoptions ) ) {
-			if ( empty( $genoptions['numberstylesets'] ) ) {
+			if ( empty( $numberstylesets ) ) {
 				$numberofsets = 1;
 			} else {
-				$numberofsets = $genoptions['numberstylesets'];
+				$numberofsets = $numberstylesets;
 			}
 
 			$thumbshotsactive = false;
@@ -488,8 +490,15 @@ class link_library_plugin_admin {
 				}
 			}
 
-			if ( $thumbshotsactive && empty( $genoptions['thumbshotscid'] ) && $genoptions['thumbnailgenerator'] == 'thumbshots' ) {
+			if ( $thumbshotsactive && empty( $thumbshotscid ) && $thumbnailgenerator == 'thumbshots' ) {
 				add_action( 'admin_notices', array( $this, 'll_thumbshots_warning' ) );
+			}
+
+			if ( !$survey2015 && !isset( $_GET['dismiss_ll_survey_2015'] ) ) {
+				add_action( 'admin_notices', array( $this, 'll_survey_2015' ) );
+			} elseif ( !$survey2015 && isset( $_GET['dismiss_ll_survey_2015'] ) ) {
+				$genoptions['survey2015'] = true;
+				update_option( 'LinkLibraryGeneral', $genoptions );
 			}
 		}
 	}
@@ -527,12 +536,17 @@ class link_library_plugin_admin {
 
 	function ll_thumbshots_warning() {
 		echo "
-        <div id='ll-warning' class='updated fade'><p><strong>" . __( 'Link Library: Missing Thumbshots API Key', 'link-library' ) . "</strong></p> <p>" . __( 'One of your link libraries is configured to use Thumbshots for link thumbails, but you have not entered your Thumbshots.com API Key. Please visit Thumbshots.com to apply for a free or paid account and enter your API in the Link Library admin panel.', 'link-library' ) . " <a href='" . add_query_arg( array( 'page' => 'link-library' ), admin_url( 'admin.php' ) ) . "'>" . __( 'Jump to Link Library admin', 'link-library' ) . "</a></p></div>";
+        <div id='ll-warning' class='updated fade'><p><strong>" . __( 'Link Library: Missing Thumbshots API Key', 'link-library' ) . "</strong></p> <p>" . __( 'One of your link libraries is configured to use Thumbshots for link thumbails, but you have not entered your Thumbshots.com API Key. Please visit Thumbshots.com to apply for a free or paid account and enter your API in the Link Library admin panel.', 'link-library' ) . " <a href='" . esc_url( add_query_arg( array( 'page' => 'link-library' ), admin_url( 'admin.php' ) ) ) . "'>" . __( 'Jump to Link Library admin', 'link-library' ) . "</a></p></div>";
 	}
 
 	function ll_missing_categories() {
 		echo "
         <div id='ll-warning' class='updated fade'><p><strong>" . __( 'Link Library: No Link Categories on your site', 'link-library' ) . "</strong></p> <p>" . __( 'There are currently no link categories defined in your WordPress site. Link Library will not work correctly without categories. Please create at least one before trying to use Link Library and make sure each link is assigned a category.', 'link-library' ) . "</p></div>";
+	}
+
+	function ll_survey_2015() {
+		echo "
+        <div id='ll-warning' class='updated fade'><p><strong><a href='http://goo.gl/forms/vPdhiI9hPG'>" . __( 'Participate in the Link Library User Survey', 'link-library' ) . "</a></strong></p> <p>" . __( '10 short questions to help shape future versions of Link Library and inform decisions on migrating its content to Custom Post Types for data storage. Important to users who use multiple link management plugins.', 'link-library' ) . "</p><p><a class='button' href='http://goo.gl/forms/vPdhiI9hPG' target='LinkLibrarySurvey'>Take Survey (opens in new tab)</a> <a class='button' href='" . esc_url( add_query_arg( array( 'page' => 'link-library', 'dismiss_ll_survey_2015' => 1 ), admin_url( 'admin.php' ) ) ) . "'>Dismiss this message</a></p></div>";
 	}
 
 	function filter_mce_buttons( $buttons ) {
@@ -905,32 +919,32 @@ class link_library_plugin_admin {
 								<img src="<?php echo plugins_url( 'icons/folder-beige-internet-icon32.png', __FILE__ ); ?>" /><span>Link Library</span>
 							</li>
 							<li class="link-library-page">
-								<a href="<?php echo add_query_arg( array( 'page' => 'link-library' ), admin_url( 'admin.php' ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library' ) {
+								<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'link-library' ), admin_url( 'admin.php' ) ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library' ) {
 									echo 'class="current"';
 								} ?>><?php _e( 'General Options', 'link-library' ); ?></a>
 							</li>
 							<li class="link-library-page">
-								<a href="<?php echo add_query_arg( array( 'page' => 'link-library-settingssets' ), admin_url( 'admin.php' ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-settingssets' ) {
+								<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'link-library-settingssets' ), admin_url( 'admin.php' ) ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-settingssets' ) {
 									echo 'class="current"';
 								} ?>><?php _e( 'Library Settings', 'link-library' ); ?></a>
 							</li>
 							<li class="link-library-page">
-								<a href="<?php echo add_query_arg( array( 'page' => 'link-library-moderate' ), admin_url( 'admin.php' ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-moderate' ) {
+								<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'link-library-moderate' ), admin_url( 'admin.php' ) ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-moderate' ) {
 									echo 'class="current"';
 								} ?>><?php _e( 'Moderate', 'link-library' ); ?></a>
 							</li>
 							<li class="link-library-page">
-								<a href="<?php echo add_query_arg( array( 'page' => 'link-library-stylesheet' ), admin_url( 'admin.php' ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-stylesheet' ) {
+								<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'link-library-stylesheet' ), admin_url( 'admin.php' ) ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-stylesheet' ) {
 									echo 'class="current"';
 								} ?>><?php _e( 'Stylesheet', 'link-library' ); ?></a>
 							</li>
 							<li class="link-library-page">
-								<a href="<?php echo add_query_arg( array( 'page' => 'link-library-reciprocal' ), admin_url( 'admin.php' ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-reciprocal' ) {
+								<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'link-library-reciprocal' ), admin_url( 'admin.php' ) ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-reciprocal' ) {
 									echo 'class="current"';
 								} ?>><?php _e( 'Reciprocal Check', 'link-library' ); ?></a>
 							</li>
 							<li class="link-library-page">
-								<a href="<?php echo add_query_arg( array( 'page' => 'link-library-faq' ), admin_url( 'admin.php' ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-faq' ) {
+								<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'link-library-faq' ), admin_url( 'admin.php' ) ) ); ?>" <?php if ( isset( $_GET['page'] ) && $_GET['page'] == 'link-library-faq' ) {
 									echo 'class="current"';
 								} ?>><?php _e( 'FAQ', 'link-library' ); ?></a>
 							</li>
@@ -1343,9 +1357,9 @@ class link_library_plugin_admin {
 									$existingextrainfoid = $wpdb->get_var( $existingextrainfo );
 
 									if ( !empty( $existingextrainfoid ) ) {
-										$wpdb->update( $extradatatable, array( 'link_second_url' => $data[7], 'link_telephone' => $data[8], 'link_email' => $data[9], 'link_reciprocal' => $data[10], 'link_textfield' => esc_html( $data[12] ), 'link_no_follow' => $nofollowvalue ), array( 'link_id' => $newlinkid ) );
+										$wpdb->update( $extradatatable, array( 'link_second_url' => $data[7], 'link_telephone' => $data[8], 'link_email' => $data[9], 'link_reciprocal' => $data[10], 'link_textfield' => $data[12], 'link_no_follow' => $nofollowvalue ), array( 'link_id' => $newlinkid ) );
 									} elseif ( empty( $existingextrainfoid ) ) {
-										$wpdb->insert( $extradatatable, array( 'link_second_url' => $data[7], 'link_telephone' => $data[8], 'link_email' => $data[9], 'link_reciprocal' => $data[10], 'link_textfield' => esc_html( $data[12] ), 'link_no_follow' => $nofollowvalue, 'link_id' => $newlinkid ) );
+										$wpdb->insert( $extradatatable, array( 'link_second_url' => $data[7], 'link_telephone' => $data[8], 'link_email' => $data[9], 'link_reciprocal' => $data[10], 'link_textfield' => $data[12], 'link_no_follow' => $nofollowvalue, 'link_id' => $newlinkid ) );
 									}
 
 									$successfulimport += 1;
@@ -1487,7 +1501,7 @@ class link_library_plugin_admin {
 					'rssfeedaddress', 'linklargedesclabel', 'flatlist', 'searchresultsaddress', 'link_popup_text', 'linktitlecontent', 'paginationposition',
 					'showaddlinkrss', 'showaddlinkdesc', 'showaddlinkcat', 'showaddlinknotes', 'addlinkcustomcat',
 					'showaddlinkreciprocal', 'showaddlinksecondurl', 'showaddlinktelephone', 'showaddlinkemail', 'showcustomcaptcha', 'showlinksubmittername',
-					'showaddlinksubmitteremail', 'showlinksubmittercomment', 'showuserlargedescription'
+					'showaddlinksubmitteremail', 'showlinksubmittercomment', 'showuserlargedescription', 'cat_letter_filter'
 				) as $option_name
 			) {
 				if ( isset( $_POST[$option_name] ) ) {
@@ -1503,7 +1517,8 @@ class link_library_plugin_admin {
 					'pagination', 'hidecategorynames', 'showinvisible', 'showdate', 'showuserlinks', 'emailnewlink', 'usethumbshotsforimages', 'uselocalimagesoverthumbshots',
 					'addlinkreqlogin', 'showcatlinkcount', 'publishrssfeed', 'showname', 'enablerewrite', 'storelinksubmitter', 'showlinkhits', 'showcaptcha',
 					'showlargedescription', 'addlinknoaddress', 'featuredfirst', 'usetextareaforusersubmitnotes', 'showcatonsearchresults', 'shownameifnoimage',
-					'enable_link_popup', 'nocatonstartup', 'showlinksonclick', 'showinvisibleadmin', 'combineresults', 'showifreciprocalvalid'
+					'enable_link_popup', 'nocatonstartup', 'showlinksonclick', 'showinvisibleadmin', 'combineresults', 'showifreciprocalvalid',
+					'cat_letter_filter_autoselect', 'cat_letter_filter_showalloption'
 				)
 				as $option_name
 			) {
@@ -1898,7 +1913,7 @@ class link_library_plugin_admin {
 						<tr>
 							<td class='lltooltip' title='<?php _e( 'The stylesheet is now defined and stored using the Link Library admin interface. This avoids problems with updates from one version to the next.', 'link-library' ); ?>' style='width:200px'><?php _e( 'Stylesheet', 'link-library' ); ?></td>
 							<td class='lltooltip' title='<?php _e( 'The stylesheet is now defined and stored using the Link Library admin interface. This avoids problems with updates from one version to the next.', 'link-library' ); ?>'>
-								<a href="<?php echo add_query_arg( array( 'page' => 'link-library-stylesheet', 'section' => 'stylesheet' ), admin_url( 'admin.php' ) ); ?>"><?php _e( 'Editor', 'link-library' ); ?></a>
+								<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'link-library-stylesheet', 'section' => 'stylesheet' ), admin_url( 'admin.php' ) ) ); ?>"><?php _e( 'Editor', 'link-library' ); ?></a>
 							</td>
 						</tr>
 						<tr>
@@ -2228,7 +2243,7 @@ class link_library_plugin_admin {
 					?>
 					<tr style='background: #FFF'>
 						<td><input type="checkbox" name="links[]" value="<?php echo $linkitem->true_link_id; ?>" /></td>
-						<td><?php echo "<a title='Edit Link: " . $linkitem->link_name . "' href='" . add_query_arg( array( 'action' => 'edit', 'link_id' => $linkitem->true_link_id ), admin_url( 'link.php' ) ) . "'>" . $linkitem->link_name . "</a>"; ?></td>
+						<td><?php echo "<a title='Edit Link: " . $linkitem->link_name . "' href='" . esc_url( add_query_arg( array( 'action' => 'edit', 'link_id' => $linkitem->true_link_id ), admin_url( 'link.php' ) ) ) . "'>" . $linkitem->link_name . "</a>"; ?></td>
 						<td><?php echo $linkitem->name; ?></td>
 						<td><?php echo "<a href='" . $linkitem->link_url . "'>" . $linkitem->link_url . "</a>"; ?></td>
 						<td><?php echo $newlinkdesc; ?></td>
@@ -2492,7 +2507,7 @@ class link_library_plugin_admin {
 							echo ' checked="checked" ';
 						} ?>/>
 					</td>
-					<td class="lltooltip" title="<?php _e( 'Select if AJAX should be used to only reload the list of links without reloading the whole page or HTML GET to reload entire page with a new link. The Permalinks option must be enabled for HTML GET + Permalink to work correctly.', 'link-library' ); ?>"><?php _e( 'Switching Method', 'link-library' ); ?></td>
+					<td style='width: 200px' class="lltooltip" title="<?php _e( 'Select if AJAX should be used to only reload the list of links without reloading the whole page or HTML GET to reload entire page with a new link. The Permalinks option must be enabled for HTML GET + Permalink to work correctly.', 'link-library' ); ?>"><?php _e( 'Switching Method', 'link-library' ); ?></td>
 					<td>
 						<select name="showonecatmode" id="showonecatmode" style="width:200px;">
 							<option value="AJAX"<?php if ( $options['showonecatmode'] == 'AJAX' || $options['showonecatmode'] == '' ) {
@@ -2598,6 +2613,22 @@ class link_library_plugin_admin {
 						<input type="text" id="rewritepage" name="rewritepage" size="40" value="<?php echo $options['rewritepage']; ?>" />
 					</td>
 				</tr>
+				<tr>
+					<td><?php _e( 'Display alphabetic cat filter', 'link-library' ); ?></td>
+					<td><?php $letterfilteroptions = array( 'no' => __( 'Do not display', 'link-library' ), 'beforecats' => __( 'Before Categories', 'link-library' ), 'beforelinks' => __( 'Before Links', 'link-library' ), 'beforecatsandlinks' => __( 'Before Categories and Links', 'link-library' )  ); ?>
+						<select name="cat_letter_filter" id="cat_letter_filter" style="width:200px;">
+							<?php foreach ( $letterfilteroptions as $letterfilteroption => $letteroptiontext ) { ?>
+							<option value="<?php echo $letterfilteroption; ?>" <?php selected( $options['cat_letter_filter'] == $letterfilteroption ); ?>><?php echo $letteroptiontext; ?></option>
+							<?php } ?>
+						</select>
+					</td>
+					<td><?php _e( 'Auto-select first alphabetic cat item', 'link-library' ); ?></td>
+					<td><input type="checkbox" id="cat_letter_filter_autoselect" name="cat_letter_filter_autoselect" <?php checked( $options['cat_letter_filter_autoselect'] ); ?>/></td>
+				</tr>
+				<tr>
+					<td><?php _e( 'Display ALL box in alphabetic cat filter', 'link-library' ); ?></td>
+					<td><input type="checkbox" id="cat_letter_filter_showalloption" name="cat_letter_filter_showalloption" <?php checked( $options['cat_letter_filter_showalloption'] ); ?>/></td>
+				</tr>
 			</table>
 		</div>
 
@@ -2665,15 +2696,10 @@ class link_library_plugin_admin {
 					</td>
 					<td>
 						<select name="flatlist" id="flatlist" style="width:200px;">
-							<option value="table"<?php if ( $options['flatlist'] == 'table' ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Table', 'link-library' ); ?></option>
-							<option value="unordered"<?php if ( $options['flatlist'] == 'unordered' ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Unordered List', 'link-library' ); ?></option>
-							<option value="dropdown"<?php if ( $options['flatlist'] == 'dropdown' ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Drop-Down List', 'link-library' ); ?></option>
+							<option value="table"<?php selected( $options['flatlist'] == 'table' ); ?>><?php _e( 'Table', 'link-library' ); ?></option>
+							<option value="unordered"<?php selected( $options['flatlist'] == 'unordered' ); ?>><?php _e( 'Unordered List', 'link-library' ); ?></option>
+							<option value="dropdown"<?php selected( $options['flatlist'] == 'dropdown' ); ?>><?php _e( 'Drop-Down List', 'link-library' ); ?></option>
+							<option value="dropdowndirect"<?php selected( $options['flatlist'] == 'dropdowndirect' ); ?>><?php _e( 'Drop-Down List Direct Access', 'link-library' ); ?></option>
 						</select>
 					</td>
 				</tr>
@@ -2682,16 +2708,12 @@ class link_library_plugin_admin {
 						<?php _e( 'Display link counts', 'link-library' ); ?>
 					</td>
 					<td>
-						<input type="checkbox" id="showcatlinkcount" name="showcatlinkcount" <?php if ( $options['showcatlinkcount'] ) {
-							echo ' checked="checked" ';
-						} ?>/>
+						<input type="checkbox" id="showcatlinkcount" name="showcatlinkcount" <?php checked( $options['showcatlinkcount'] ); ?>/>
 					</td>
 					<td style='width:100px'></td>
 					<td style='width:200px'><?php _e( 'Display categories with search results', 'link-library' ); ?>    </td>
 					<td>
-						<input type="checkbox" id="showcatonsearchresults" name="showcatonsearchresults" <?php if ( $options['showcatonsearchresults'] ) {
-							echo ' checked="checked" ';
-						} ?>/></td>
+						<input type="checkbox" id="showcatonsearchresults" name="showcatonsearchresults" <?php checked( $options['showcatonsearchresults'] ); ?>/></td>
 				</tr>
 				<tr>
 					<td class="lltooltip" title="<?php _e( 'This setting does not apply when selecting My Link Order for the order', 'link-library' ); ?>">
@@ -2699,12 +2721,8 @@ class link_library_plugin_admin {
 					</td>
 					<td class="lltooltip" title="<?php _e( 'This setting does not apply when selecting My Link Order for the order', 'link-library' ); ?>">
 						<select name="direction" id="direction" style="width:100px;">
-							<option value="ASC"<?php if ( $options['direction'] == 'ASC' ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Ascending', 'link-library' ); ?></option>
-							<option value="DESC"<?php if ( $options['direction'] == 'DESC' ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Descending', 'link-library' ); ?></option>
+							<option value="ASC"<?php selected( $options['direction'] == 'ASC' ); ?>><?php _e( 'Ascending', 'link-library' ); ?></option>
+							<option value="DESC"<?php selected( $options['direction'] == 'DESC' ); ?>><?php _e( 'Descending', 'link-library' ); ?></option>
 						</select>
 					</td>
 					<td></td>
@@ -2712,17 +2730,11 @@ class link_library_plugin_admin {
 						<?php _e( 'Show Category Description', 'link-library' ); ?>
 					</td>
 					<td class="lltooltip" title="<?php _e( 'Use [ and ] in the description to perform special actions using HTML such as inserting images instead of < and >', 'link-library' ); ?>">
-						<input type="checkbox" id="showcategorydescheaders" name="showcategorydescheaders" <?php if ( $options['showcategorydescheaders'] ) {
-							echo ' checked="checked" ';
-						} ?>/>
+						<input type="checkbox" id="showcategorydescheaders" name="showcategorydescheaders" <?php checked( $options['showcategorydescheaders'] ); ?>/>
 						<span style='margin-left: 17px'><?php _e( 'Position', 'link-library' ); ?>:</span>
 						<select name="catlistdescpos" id="catlistdescpos" style="width:100px;">
-							<option value="right"<?php if ( $options['catlistdescpos'] == 'right' ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Right', 'link-library' ); ?></option>
-							<option value="left"<?php if ( $options['catlistdescpos'] == 'left' ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Left', 'link-library' ); ?></option>
+							<option value="right"<?php selected( $options['catlistdescpos'] == 'right' ); ?>><?php _e( 'Right', 'link-library' ); ?></option>
+							<option value="left"<?php selected( $options['catlistdescpos'] == 'left' ); ?>><?php _e( 'Left', 'link-library' ); ?></option>
 						</select>
 					</td>
 				</tr>
@@ -2739,17 +2751,11 @@ class link_library_plugin_admin {
 					</td>
 					<td class="lltooltip" title='<?php _e( 'Determines the number of alternating div tags that will be placed before and after each link category', 'link-library' ); ?>.<br /><br /><?php _e( 'These div tags can be used to style of position link categories on the link page', 'link-library' ); ?>.'>
 						<select name="catlistwrappers" id="catlistwrappers" style="width:200px;">
-							<option value="1"<?php if ( $options['catlistwrappers'] == 1 ) {
-								echo ' selected="selected"';
-							} ?>>1
+							<option value="1"<?php selected( $options['catlistwrappers'] == 1 ); ?>>1
 							</option>
-							<option value="2"<?php if ( $options['catlistwrappers'] == 2 ) {
-								echo ' selected="selected"';
-							} ?>>2
+							<option value="2"<?php selected( $options['catlistwrappers'] == 2 ); ?>>2
 							</option>
-							<option value="3"<?php if ( $options['catlistwrappers'] == 3 ) {
-								echo ' selected="selected"';
-							} ?>>3
+							<option value="3"<?php selected( $options['catlistwrappers'] == 3 ); ?>>3
 							</option>
 						</select>
 					</td>
@@ -2775,12 +2781,8 @@ class link_library_plugin_admin {
 					</td>
 					<td>
 						<select name="divorheader" id="divorheader" style="width:200px;">
-							<option value="false"<?php if ( $options['divorheader'] == false ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Div Class', 'link-library' ); ?></option>
-							<option value="true"<?php if ( $options['divorheader'] == true ) {
-								echo ' selected="selected"';
-							} ?>><?php _e( 'Heading Tag', 'link-library' ); ?></option>
+							<option value="false"<?php selected( $options['divorheader'] == false ); ?>><?php _e( 'Div Class', 'link-library' ); ?></option>
+							<option value="true"<?php selected( $options['divorheader'] == true ); ?>><?php _e( 'Heading Tag', 'link-library' ); ?></option>
 						</select>
 					</td>
 					<td></td>
@@ -2914,12 +2916,8 @@ class link_library_plugin_admin {
 				</td>
 				<td>
 					<select name="displayastable" id="displayastable" style="width:200px;">
-						<option value="true"<?php if ( $options['displayastable'] == true ) {
-							echo ' selected="selected"';
-						} ?>><?php _e( 'Table', 'link-library' ); ?></option>
-						<option value="false"<?php if ( $options['displayastable'] == false ) {
-							echo ' selected="selected"';
-						} ?>><?php _e( 'Unordered List', 'link-library' ); ?></option>
+						<option value="true"<?php selected( $options['displayastable'] ); ?>><?php _e( 'Table', 'link-library' ); ?></option>
+						<option value="false"<?php if ( !$options['displayastable'] ); ?>><?php _e( 'Unordered List', 'link-library' ); ?></option>
 					</select>
 				</td>
 			</tr>
@@ -2928,9 +2926,7 @@ class link_library_plugin_admin {
 					<?php _e( 'Show Column Headers', 'link-library' ); ?>
 				</td>
 				<td>
-					<input type="checkbox" id="showcolumnheaders" name="showcolumnheaders" <?php if ( $options['showcolumnheaders'] ) {
-						echo ' checked="checked" ';
-					} ?>/>
+					<input type="checkbox" id="showcolumnheaders" name="showcolumnheaders" <?php checked( $options['showcolumnheaders'] ); ?>/>
 				</td>
 				<td></td>
 				<td>
@@ -2975,16 +2971,14 @@ class link_library_plugin_admin {
 					<?php _e( 'Embed HTML anchors', 'link-library' ); ?>
 				</td>
 				<td class="lltooltip" title='<?php _e( 'Need to be active for Link Categories to work', 'link-library' ); ?>'>
-					<input type="checkbox" id="catanchor" name="catanchor" <?php if ( $options['catanchor'] ) {
-						echo ' checked="checked" ';
-					} ?>/>
+					<input type="checkbox" id="catanchor" name="catanchor" <?php checked( $options['catanchor'] ); ?>/>
 				</td>
 				<td></td>
 				<td>
 					<?php _e( 'Show Hidden Links to Admins/Editors', 'link-library' ); ?>
 				</td>
 				<td>
-					<input type="checkbox" id="showinvisibleadmin" name="showinvisibleadmin" <?php if ( isset( $options['showinvisibleadmin'] ) ) { checked( $options['showinvisibleadmin'] ); } ?>/>
+					<input type="checkbox" id="showinvisibleadmin" name="showinvisibleadmin" <?php checked( $options['showinvisibleadmin'] ); ?>/>
 				</td>
 			</tr>
 		</table>
@@ -3834,7 +3828,7 @@ class link_library_plugin_admin {
 		<table>
 		<tr>
 			<td colspan=5 class="lltooltip" title='<?php _e( 'Following this link shows a list of all links awaiting moderation', 'link-library' ); ?>.'>
-				<a href="<?php echo add_query_arg( 's', 'LinkLibrary%3AAwaitingModeration%3ARemoveTextToApprove', admin_url( 'link-manager.php' ) ); ?>"><?php _e( 'View list of links awaiting moderation', 'link-library' ); ?></a>
+				<a href="<?php echo esc_url( add_query_arg( 's', 'LinkLibrary%3AAwaitingModeration%3ARemoveTextToApprove', admin_url( 'link-manager.php' ) ) ); ?>"><?php _e( 'View list of links awaiting moderation', 'link-library' ); ?></a>
 			</td>
 		</tr>
 		<tr>
@@ -4363,7 +4357,13 @@ class link_library_plugin_admin {
 			<tr>
 				<td><?php _e( 'Link Large Description', 'link-library' ); ?></td>
 				<td>
-					<textarea id="link_textfield" name="link_textfield" cols='66'><?php echo( isset( $extradata['link_textfield'] ) ? ( function_exists( 'esc_textarea' ) ? esc_textarea( stripslashes( $extradata['link_textfield'] ) ) : stripslashes( $extradata['link_textfield'] ) ) : '' ); ?></textarea>
+					<?php
+					$editorsettings = array( 'media_buttons' => false,
+											 'textarea_rows' => 5,
+											 'textarea_name' => 'link_textfield',
+											 'wpautop' => true );
+
+					wp_editor( isset( $extradata['link_textfield'] ) ? ( function_exists( 'esc_textarea' ) ? esc_textarea( stripslashes( $extradata['link_textfield'] ) ) : stripslashes( $extradata['link_textfield'] ) ) : '', 'link_textfield', $editorsettings ); ?>
 				</td>
 			</tr>
 			<tr>
@@ -4677,7 +4677,7 @@ class link_library_plugin_admin {
 			}
 
 			if ( isset( $_POST['link_textfield'] ) ) {
-				$updatearray['link_textfield'] = esc_html( $_POST['link_textfield'] );
+				$updatearray['link_textfield'] = $_POST['link_textfield'];
 			}
 
 			if ( isset( $_POST['link_no_follow'] ) && $_POST['link_no_follow'] == 'on' ) {

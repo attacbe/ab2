@@ -213,6 +213,9 @@ function ll_reset_options( $settings = 1, $layout = 'list', $setoptions = 'retur
 	$options['singlelinkid']                  = '';
 	$options['combineresults']                = false;
 	$options['showifreciprocalvalid']         = false;
+	$options['cat_letter_filter']             = 'no';
+	$options['cat_letter_filter_autoselect']  = true;
+	$options['cat_letter_filter_showalloption'] = true;
 
 	if ( 'return_and_set' == $setoptions ) {
 		$settingsname = 'LinkLibraryPP' . $settings;
@@ -252,6 +255,7 @@ function ll_reset_gen_settings( $setoptions = 'return' ) {
 	$genoptions['fullstylesheet']              = '';
 	$genoptions['thumbnailsize']               = '120x90';
 	$genoptions['thumbnailgenerator']          = 'robothumb';
+	$genoptions['survey2015']                  = false;
 
 	if ( 'return_and_set' == $setoptions ) {
 		$stylesheetlocation           = plugins_url( 'stylesheettemplate.css', __FILE__ );

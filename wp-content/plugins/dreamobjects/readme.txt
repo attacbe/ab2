@@ -2,8 +2,8 @@
 Contributors: Ipstenu
 Tags: cloud, dreamhost, dreamobjects, backup
 Requires at least: 3.4
-Tested up to: 4.1
-Stable tag: 3.5.1
+Tested up to: 4.2
+Stable tag: 3.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,12 @@ You can also log in via SSH and run 'wp dreamobjects backup' to see if that work
 1. The uploader page, as seen by Authors
 
 == Changelog ==
+
+= 3.5.2 = 
+
+April 2015 by Ipstenu
+
+* Hashes and 4.2 compat.
 
 = 3.5.1 = 
 

@@ -4,7 +4,7 @@ Plugin Name: Highlight and Share
 Plugin URI: http://wordpress.org/extend/plugins/highlight-and-share/
 Description: Highlight text and share via Twitter or Facebook
 Author: ronalfy
-Version: 1.0.0
+Version: 1.1.2
 Requires at least: 3.5
 Author URI: http://www.ronalfy.com
 Contributors: ronalfy
@@ -122,7 +122,7 @@ class Highlight_And_Share {
 		if ( !is_object( $post ) ) return $content;
 		
 		$post_id = $post->ID;
-		$url = get_permalink( $post_id );
+		$url = $this->get_content_url( $post_id );
 		$title = get_the_title( $post_id );
 		$content = sprintf( '<div class="has-content-area" data-url="%s" data-title="%s">%s</div>', esc_url( $url ), esc_attr( $title ), $content );
 		return $content;
@@ -147,12 +147,34 @@ class Highlight_And_Share {
 		if ( !is_object( $post ) ) return $content;
 		
 		$post_id = $post->ID;
-		$url = get_permalink( $post_id );
+		$url = $this->get_content_url( $post_id );
 		$title = get_the_title( $post_id );
 		$content = sprintf( '<div class="has-excerpt-area" data-url="%s" data-title="%s">%s</div>', esc_url( $url ), esc_attr( $title ), $content );
 		return $content;
 		
 		
+	}
+	
+	/**
+	 * Retrieve a post's URL
+	 *
+	 * Retrieve a post's URL (may be shortened)
+	 *
+	 * @since 1.1
+	 * @access private
+	 *
+	 *
+	 * @param int $post_id Post ID to retrieve the URL for
+	 * @return string $url URL to the post
+	 */
+	private function get_content_url( $post_id ) {
+		$settings = $this->get_plugin_options();
+		$enable_shortlinks = isset( $settings[ 'shortlinks' ] ) ? (bool)$settings[ 'shortlinks' ] : false;
+		if ( $enable_shortlinks ) {
+			return wp_get_shortlink( $post_id );
+		} else {
+			return get_permalink( $post_id );	
+		}
 	}
 	
 	
@@ -190,7 +212,7 @@ class Highlight_And_Share {
 			if ( wp_is_mobile() && apply_filters( 'has_enable_mobile', true ) ) { 
 				$deps[] = 'jquery.mobile';	
 			}
-			wp_enqueue_script( 'highlight-and-share', $this->get_plugin_url( 'js/highlight-and-share.js' ), $deps, '20141205', true );
+			wp_enqueue_script( 'highlight-and-share', $this->get_plugin_url( 'js/highlight-and-share.js' ), $deps, '20150316', true );
 
 			/**Build JSON Object**/
 			$settings = $this->get_plugin_options();
@@ -205,7 +227,7 @@ class Highlight_And_Share {
 			
 			//Override the filter if no username is present for twitter
 			if ( empty( $json_arr[ 'twitter_username' ] ) ) {
-				$json_arr[ 'show_twitter' ] = false;
+				$json_arr[ 'twitter_username' ] = '';
 			}
 			
 			//Add mobile
@@ -245,7 +267,7 @@ class Highlight_And_Share {
 				$string = trim( esc_js( $string ) );	
 			}
 			$content = array_merge( $classes, $ids, $elements );
-			$json_arr[ 'content' ] = implode(',', $content );
+			$json_arr[ 'content' ] = apply_filters( 'has_js_selectors', implode(',', $content ), $content, $classes, $ids, $elements );
 			
 			//Text to display
 			$json_arr[ 'tweet_text' ] = apply_filters( 'has_twitter_text', _x( 'Tweet', 'Twitter share text', 'highlight-and-share' ) );
@@ -336,6 +358,8 @@ class Highlight_And_Share {
 		
 		add_settings_section( 'has-facebook', _x( 'Facebook Settings', 'plugin settings heading' , 'highlight-and-share' ), array( $this, 'settings_section' ), 'highlight-and-share' );
 		
+		add_settings_section( 'has-shortlink', _x( 'Post URL Settings', 'plugin settings heading' , 'highlight-and-share' ), array( $this, 'settings_section' ), 'highlight-and-share' );
+		
 		add_settings_section( 'has-advanced', _x( 'Advanced', 'plugin settings heading' , 'highlight-and-share' ), array( $this, 'settings_section' ), 'highlight-and-share' );
 		
 		add_settings_field( 'hightlight-and-share-content-enable', __( 'Add to Post Content', 'highlight-and-share' ), array( $this, 'add_settings_field_content_enable' ), 'highlight-and-share', 'has-config', array( 'desc' => __( 'Would you like to add sharing to the main content areas?', 'highlight-and-share' ) ) );
@@ -347,6 +371,8 @@ class Highlight_And_Share {
 		add_settings_field( 'hightlight-and-share-twitter-handle', __( 'Twitter Username', 'highlight-and-share' ), array( $this, 'add_settings_field_twitter' ), 'highlight-and-share', 'has-twitter', array( 'label_for' => 'hightlight-and-share-twitter-handle', 'desc' => __( 'Enter Your Twittter Username', 'highlight-and-share' ) ) );
 		
 		add_settings_field( 'hightlight-and-share-facebook-enable', __( 'Show Facebook Option', 'highlight-and-share' ), array( $this, 'add_settings_field_facebook_enable' ), 'highlight-and-share', 'has-facebook', array( 'desc' => __( 'Would you like to enable sharing via Facebook?', 'highlight-and-share' ) ) );
+		
+		add_settings_field( 'hightlight-and-share-shortlink-enable', __( 'Shortlinks', 'highlight-and-share' ), array( $this, 'add_settings_field_shortlink_enable' ), 'highlight-and-share', 'has-shortlink', array( 'desc' => __( 'Please decide if you would like to use the default post URL or a shortened version.', 'highlight-and-share' ) ) );
 		
 		add_settings_field( 'hightlight-and-share-js-content', _x( 'jQuery classes', 'Label - Where in the HTML document to search for text to capture', 'highlight-and-share' ), array( $this, 'add_settings_field_js_content' ), 'highlight-and-share', 'has-advanced', array( 'label_for' => 'hightlight-and-share-js-content', 'desc' => __( 'Enter jQuery classes to search for in the HTML.  You must comma-separate classes (e.g., entry-content,post,page).', 'highlight-and-share' ) ) );
 		
@@ -400,8 +426,10 @@ class Highlight_And_Share {
 		//Settings are being saved.  Update.
 		foreach( $input as $key => $value ) {
 			if ( 'twitter' == $key ) {
-				$twitter_username = $input[ $key ];
-				if ( !preg_match( '/^[a-zA-Z0-9_]{1,15}$/', $twitter_username ) ) {
+				$twitter_username = trim( $value );
+				if ( empty( $twitter_username ) ) {
+					$output[ $key ] ='';
+				} elseif ( !preg_match( '/^[a-zA-Z0-9_]{1,15}$/', $twitter_username ) ) {
 					add_settings_error( 'highlight-and-share', 'invalid_twitter', _x( 'You have entered an incorrect Twitter username', 'Twitter username error', 'highlight-and-share' ) );
 				} else {
 					$output[ $key ] = sanitize_text_field( $value );
@@ -413,7 +441,7 @@ class Highlight_And_Share {
 				} else {
 					add_settings_error( 'highlight-and-share', 'invalid_twitter', _x( 'You must enter valid comma-separated values for the content.', 'Invalid comma-separated values', 'highlight-and-share' ) );
 				}
-			} elseif( ( 'show_twitter' || 'show_facebook' || 'enable_content' || 'enable_excerpt' ) == $key ) {
+			} elseif( ( 'show_twitter' || 'show_facebook' || 'enable_content' || 'enable_excerpt' || 'shortlinks' ) == $key ) {
 				if ( $input[ $key ] == 'on' ) {
 					$output[ $key ] = true;	
 				} else {
@@ -569,6 +597,30 @@ class Highlight_And_Share {
 	}
 	
 	/**
+	 * Add Shortlink Option for Sharing.
+	 *
+	 * Output checkbox for shortlinks.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @see init_admin_settings
+	 *
+	 * @param array $args {
+	 		@type string $label_for Settings label and ID.
+	
+	 		@type string $desc Description for the setting.
+	 		
+	 }
+	 */
+	public function add_settings_field_shortlink_enable( $args = array() ) {
+		$settings = $this->get_plugin_options();
+		$enable_shortlinks = isset( $settings[ 'shortlinks' ] ) ? (bool)$settings[ 'shortlinks' ] : false;
+		echo '<input name="highlight-and-share[shortlinks]" value="off" type="hidden" />';
+		printf( '<input id="has-shortlinks" type="checkbox" name="highlight-and-share[shortlinks]" value="on" %s />&nbsp;<label for="has-shortlinks">%s</label>', checked( true, $enable_shortlinks, false ), __( 'Enable Shortlinks?', 'highlight-and-share' ) );
+	}
+	
+	/**
 	 * Initialize and return plugin options.
 	 *
 	 * Return an array of plugin options.
@@ -594,7 +646,8 @@ class Highlight_And_Share {
 				'show_twitter' => true,
 				'show_facebook' => true,
 				'enable_content' => true,
-				'enable_excerpt' => true
+				'enable_excerpt' => true,
+				'shortlinks' => false
 			);
 			update_option( 'highlight-and-share', $defaults );
 			return $defaults;

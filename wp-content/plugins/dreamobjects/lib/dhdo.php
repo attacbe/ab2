@@ -217,8 +217,9 @@ class DHDO {
         // And me DB!
         if ( in_array('database', $sections) ) {
             set_time_limit(300);
-
-			$sqlfile = WP_CONTENT_DIR . '/upgrade/dreamobject-db-backup.sql';
+            
+            $sqlhash = wp_hash( wp_rand() );
+			$sqlfile = WP_CONTENT_DIR . '/upgrade/'.$sqlhash.'.sql';
             $tables = $wpdb->get_col("SHOW TABLES LIKE '" . $wpdb->prefix . "%'");
             $tables_string = implode( ' ', $tables );
 
@@ -277,6 +278,12 @@ class DHDO {
 				@unlink($file);
 				DHDO::logger('Zip file failed to generate. Nothing will be backed up.');
 			}
+			
+			// Delete SQL
+            if(file_exists($sqlfile)) { 
+                @unlink($sqlfile);
+                DHDO::logger('Deleting SQL file: '.$sqlfile.' ...');
+            }			
             
             // Upload
 
@@ -310,7 +317,7 @@ class DHDO {
 				// Uploading
 	            set_time_limit(180);
 	
-				DHDO::logger('Begining upload to DreamObjects servers.');
+				DHDO::logger('Beginning upload to DreamObjects servers.');
 	
 				// Check the size of the file before we upload, in order to compensate for large files
 				if ( @filesize($file) >= (100 * 1024 * 1024) ) {
