@@ -61,4 +61,24 @@ var UTIL = {
 
 $(document).ready(UTIL.loadEvents);
 
+$(document).on('page:fetch',   function() {
+  NProgress.start();
+  console.log('page:fetch');
+});
+
+$(document).on('page:receive', function() {
+  NProgress.set(0.7);
+  console.log('page:receive');
+});
+
+$(document).on('page:change',  function() {
+  NProgress.done();
+  console.log('page:change');
+});
+
+$(document).on('page:restore', function() {
+  NProgress.remove();
+  console.log('page:restore');
+});
+
 })(jQuery); // Fully reference jQuery after this point.
