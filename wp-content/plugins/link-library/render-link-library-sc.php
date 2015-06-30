@@ -271,10 +271,6 @@ function RenderLinkLibrary( $LLPluginClass, $generaloptions, $libraryoptions, $s
 
         $catquery .= ' ORDER by ';
 
-        if ( true == $featuredfirst ) {
-            $catquery .= 'le.link_featured DESC, ';
-        }
-
         if ( !$combineresults ) {
             if ( 'name' == $order ) {
                 $catquery .= ' name ' . ( in_array( $direction, $validdirections ) ? $direction : 'ASC' );
@@ -289,7 +285,11 @@ function RenderLinkLibrary( $LLPluginClass, $generaloptions, $libraryoptions, $s
             $catquery .= ', ';
         }
 
-        if ( 'name' == $linkorder ) {
+	    if ( true == $featuredfirst ) {
+		    $catquery .= ' le.link_featured DESC, ';
+	    }
+
+	    if ( 'name' == $linkorder ) {
             $catquery .= 'link_name ' . ( in_array( $linkdirection, $validdirections ) ? $direction : 'ASC' );
         } elseif ( 'id' == $linkorder ) {
             $catquery .= 'link_id ' . ( in_array( $linkdirection, $validdirections ) ? $direction : 'ASC' );
@@ -439,10 +439,6 @@ function RenderLinkLibrary( $LLPluginClass, $generaloptions, $libraryoptions, $s
 
     $linkquery .= ' ORDER by ';
 
-    if ( $featuredfirst ) {
-        $linkquery .= 'link_featured DESC, ';
-    }
-
     if ( !$combineresults ) {
         if ( 'name' == $order ) {
             $linkquery .= ' name ' . ( in_array( $direction, $validdirections ) ? $direction : 'ASC' );
@@ -456,6 +452,10 @@ function RenderLinkLibrary( $LLPluginClass, $generaloptions, $libraryoptions, $s
 
         $linkquery .= ', ';
     }
+
+	if ( $featuredfirst ) {
+		$linkquery .= ' link_featured DESC, ';
+	}
 
     if ( 'name' == $linkorder || 'random' == $linkorder ) {
         $linkquery .= 'l.link_name ' . ( in_array( $linkdirection, $validdirections ) ? $linkdirection : 'ASC' );
@@ -591,6 +591,10 @@ function RenderLinkLibrary( $LLPluginClass, $generaloptions, $libraryoptions, $s
                     if ( !empty( $catlistwrappers ) ) {
                         $output .= '</div>';
                     }
+
+	                if ( !empty( $beforefirstlink ) ) {
+		                $output .= $afterlastlink;
+	                }
 
                     if ( $showlinksonclick ) {
                         $output .= '</div>';
@@ -820,6 +824,10 @@ function RenderLinkLibrary( $LLPluginClass, $generaloptions, $libraryoptions, $s
                 }
 
                 $output .= $catstartlist;
+
+	            if ( !empty( $beforefirstlink ) ) {
+		            $output .= $beforefirstlink;
+	            }
             }
 
             $between = "\n";
@@ -1395,7 +1403,7 @@ function RenderLinkLibrary( $LLPluginClass, $generaloptions, $libraryoptions, $s
         $output .= "<script type='text/javascript'>\n";
         $output .= "jQuery(document).ready(function()\n";
         $output .= "{\n";
-        $output .= "jQuery('a.track_this_link').click(function() {\n";
+        $output .= "jQuery('#linklist" . $settings . " a.track_this_link').click(function() {\n";
         $output .= "linkid = this.id;\n";
         $output .= "linkid = linkid.substring(5);";
         $output .= "path = '" . $xpath . "';";

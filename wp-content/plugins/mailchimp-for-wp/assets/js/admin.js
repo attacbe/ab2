@@ -37,13 +37,12 @@
 
 	function toggleWooCommerceSettings() {
 		var $el = $(document.getElementById('woocommerce-settings'));
-		$el.toggle( $(this).prop('checked'));
+		$el.toggle(this.checked);
 	}
 
 	function toggleFieldWizard() {
 		var hasListSelected = $listInputs.filter(':checked').length > 0;
 		$(".mc4wp-notice.no-lists-selected").toggle( ! hasListSelected );
-		$( document.getElementById( 'mc4wp-fw-fields')).toggle( hasListSelected );
 		$( document.getElementById( 'mc4wp-fw-mailchimp-fields' )).toggle( hasListSelected );
 	}
 
@@ -89,7 +88,7 @@
 	$context.find('input[name$="[double_optin]"]').change(toggleSendWelcomeFields);
 
 	// show woocommerce settings only when `show at woocommerce checkout` is checked.
-	$context.find('input[name$="[show_at_woocommerce_checkout]"]').change(toggleWooCommerceSettings());
+	$context.find('input[name$="[show_at_woocommerce_checkout]"]').change(toggleWooCommerceSettings);
 
 	// only show fieldwizard when a list is selected
 	$listInputs.change(toggleFieldWizard);
@@ -180,7 +179,7 @@
 					}
 
 					// add field to select if no similar option exists yet
-					if($mailchimpMergeFields.find("option[value='"+ listField.tag +"']").length === 0) {
+					if($mailchimpMergeFields.children("option[value='"+ listField.tag +"']").length === 0) {
 
 						var text = (listField.name.length > 25) ? listField.name.substring(0, 25) + '..' : listField.name;
 						if(listField.req) { text += '*'; }
@@ -189,13 +188,6 @@
 							.text(text)
 							.val(listField.tag)
 							.data('list-field', listField);
-
-						// only enable 3 fields
-						if( i > 3 ) {
-							$option.text( strings.proOnly + " " + text)
-								.attr('disabled', 'disabled')
-								.data('field', null);
-						}
 
 						$mailchimpMergeFields.append($option);
 					}
@@ -206,7 +198,7 @@
 					var listGrouping = list.interest_groupings[i];
 
 					// add field to select if no similar option exists yet
-					if($mailchimpGroupings.find("option[value='"+ listGrouping.id +"']").length === 0) {
+					if($mailchimpGroupings.children("option[value='"+ listGrouping.id +"']").length === 0) {
 						var text = (listGrouping.name.length > 25) ? listGrouping.name.substring(0, 25) + '..' : listGrouping.name;
 						
 						// build option HTML
@@ -215,7 +207,7 @@
 							.val(listGrouping.id)
 							.data('list-grouping', listGrouping);
 
-						// only show 1 grouping
+						// only show 1 grouping per list
 						if(i >= 1) {
 							$option.text( strings.proOnly + " " + text)
 								.attr('disabled', 'disabled')
@@ -242,6 +234,11 @@
 
 			var selected = $(this).find(':selected');
 			switch( selected.val() ) {
+
+				case '_action':
+					fieldType = 'action';
+					$wizardFields.find('.wrap-p').show();
+					break;
 
 				case 'submit':
 					fieldType = 'submit';
@@ -373,6 +370,24 @@
 			return html;
 		}
 
+		function getActionChoiceHTML() {
+			var actions = [
+				{ name: "subscribe", label: strings.subscribe, checked: true },
+				{ name: "unsubscribe", label: strings.unsubscribe, checked: false }
+			];
+
+			var html = '';
+			for( var i=0; i<actions.length; i++ ) {
+				var action = actions[i];
+
+				html += '<label>' + "\n";
+				html += "\t" + '<input type="radio" name="_mc4wp_action" value="' + action.name + '" '+ ( ( action.checked ) ? 'checked' : '' ) +' > ' + action.label + "\n";
+				html += '</label>' + "\n";
+			}
+
+			return html;
+		}
+
 
 
 		/**
@@ -421,7 +436,7 @@
 			$label.val( data.name + ":" );
 
 			// set required attribute
-			$required.attr('checked', data.req);
+			$required.prop('checked', data.req);
 
 			if($multipleValues.is(":visible") && data.choices) {
 				for(var i = 0; i < data.choices.length; i++) {
@@ -458,6 +473,17 @@
 			var $input;
 
 			switch(fieldType) {
+
+				case 'action':
+					var html = getActionChoiceHTML();
+
+					if( wrapInParagraph() ) {
+						html = "<p>" + html + "</p>";
+					}
+
+					return setCodePreview(html);
+					break;
+
 				// MailChimp lists
 				case 'lists':
 					var html = getListChoiceHTML();

@@ -833,7 +833,7 @@ class link_library_plugin_admin {
 							break;
 
 						case '4':
-							echo "<div id='message' class='updated fade'><p><strong>" . __( 'Invalid column count for link on row', 'link-library' ) . "</strong></p></div>";
+							echo "<div id='message' class='updated fade'><p><strong>" . __( 'Invalid column count for link on row. Compare against template.', 'link-library' ) . "</strong></p></div>";
 							break;
 
 						case '5':
@@ -1232,7 +1232,7 @@ class link_library_plugin_admin {
 
 				$linkquery = "SELECT distinct l.link_name, l.link_url, l.link_rss, l.link_description, l.link_notes, ";
 				$linkquery .= "t.name, l.link_visible, le.link_second_url, le.link_telephone, le.link_email, le.link_reciprocal, ";
-				$linkquery .= "l.link_image, le.link_textfield, le.link_no_follow ";
+				$linkquery .= "l.link_image, le.link_textfield, le.link_no_follow, l.link_rating, l.link_target ";
 				$linkquery .= "FROM " . $this->db_prefix() . "terms t ";
 				$linkquery .= "LEFT JOIN " . $this->db_prefix() . "term_taxonomy tt ON (t.term_id = tt.term_id) ";
 				$linkquery .= "LEFT JOIN " . $this->db_prefix() . "term_relationships tr ON (tt.term_taxonomy_id = tr.term_taxonomy_id) ";
@@ -1314,7 +1314,7 @@ class link_library_plugin_admin {
 					}
 
 					if ( !$skiprow ) {
-						if ( count( $data ) == 14 ) {
+						if ( count( $data ) == 16 ) {
 							if ( !empty( $data[5] ) ) {
 								$existingcatquery = "SELECT t.term_id FROM " . $this->db_prefix() . "terms t, " . $this->db_prefix() . "term_taxonomy tt ";
 								$existingcatquery .= "WHERE t.name = '" . esc_html( $data[5] ) . "' AND t.term_id = tt.term_id AND tt.taxonomy = 'link_category'";
@@ -1334,6 +1334,13 @@ class link_library_plugin_admin {
 								} else {
 									$newlinkcat = array( $existingcat );
 								}
+								
+								$newrating = intval( $data[14] );
+								if ( $newrating < 0 ) {
+									$newrating = 0;
+								} elseif ( $newrating > 10 ) {
+									$newrating = 10;
+								}
 
 								$newlink = array(
 									"link_name"        => esc_html( stripslashes( $data[0] ) ),
@@ -1343,7 +1350,9 @@ class link_library_plugin_admin {
 									"link_notes"       => esc_html( stripslashes( $data[4] ) ),
 									"link_category"    => $newlinkcat,
 									"link_visible"     => $data[6],
-									"link_image"       => $data[11]
+									"link_image"       => $data[11],
+									"link_rating"	   => $newrating,
+									"link_target"      => $data[15]
 								);
 
 								$newlinkid = wp_insert_link( $newlink );
@@ -1501,7 +1510,7 @@ class link_library_plugin_admin {
 					'rssfeedaddress', 'linklargedesclabel', 'flatlist', 'searchresultsaddress', 'link_popup_text', 'linktitlecontent', 'paginationposition',
 					'showaddlinkrss', 'showaddlinkdesc', 'showaddlinkcat', 'showaddlinknotes', 'addlinkcustomcat',
 					'showaddlinkreciprocal', 'showaddlinksecondurl', 'showaddlinktelephone', 'showaddlinkemail', 'showcustomcaptcha', 'showlinksubmittername',
-					'showaddlinksubmitteremail', 'showlinksubmittercomment', 'showuserlargedescription', 'cat_letter_filter'
+					'showaddlinksubmitteremail', 'showlinksubmittercomment', 'showuserlargedescription', 'cat_letter_filter', 'beforefirstlink', 'afterlastlink'
 				) as $option_name
 			) {
 				if ( isset( $_POST[$option_name] ) ) {
@@ -2917,7 +2926,7 @@ class link_library_plugin_admin {
 				<td>
 					<select name="displayastable" id="displayastable" style="width:200px;">
 						<option value="true"<?php selected( $options['displayastable'] ); ?>><?php _e( 'Table', 'link-library' ); ?></option>
-						<option value="false"<?php if ( !$options['displayastable'] ); ?>><?php _e( 'Unordered List', 'link-library' ); ?></option>
+						<option value="false"<?php selected( !$options['displayastable'] ); ?>><?php _e( 'Unordered List', 'link-library' ); ?></option>
 					</select>
 				</td>
 			</tr>
@@ -3068,6 +3077,14 @@ class link_library_plugin_admin {
 		<th style='width: 80px'><?php _e( 'Additional Details', 'link-library' ); ?></th>
 		<th style='width: 80px'><?php _e( 'Link Source', 'link-library' ); ?></th>
 		</thead>
+		<tr>
+			<td class="lltooltip" title='<?php _e( 'This column allows for the output of text/code before the first link in each category', 'link-library' ); ?>'><?php _e( 'Before first link', 'link-library' ); ?></td>
+			<td style='background: #FFF'></td>
+			<td style='background: #FFF' class="lltooltip" title='<?php _e( 'Output of text/code before the first link in each category', 'link-library' ); ?>'>
+				<input type="text" id="beforefirstlink" name="beforefirstlink" size="22" value="<?php echo stripslashes( $options['beforefirstlink'] ); ?>" />
+			</td>
+			<td style='background: #FFF'></td><td style='background: #FFF'></td><td style='background: #FFF'></td>
+		</tr>
 		<tr>
 			<td class="lltooltip" title='<?php _e( 'This column allows for the output of text/code before a number of links determined by the Display field', 'link-library' ); ?>'><?php _e( 'Intermittent Before Link', 'link-library' ); ?></td>
 			<td style='background: #FFF' class="lltooltip" title='<?php _e( 'Frequency of additional output before and after complete link group', 'link-library' ); ?>'>
@@ -3430,6 +3447,14 @@ class link_library_plugin_admin {
 			</td>
 			<td style='background: #FFF'></td>
 			<td style='background: #FFF'></td>
+		</tr>
+		<tr>
+			<td class="lltooltip" title='<?php _e( 'This column allows for the output of text/code after the last link in each category', 'link-library' ); ?>'><?php _e( 'After last link', 'link-library' ); ?></td>
+			<td style='background: #FFF'></td><td style='background: #FFF'></td>
+			<td style='background: #FFF'>
+				<input type="text" id="afterlastlink" name="afterlastlink" size="22" value="<?php echo stripslashes( $options['afterlastlink'] ); ?>" />
+			</td>
+			<td style='background: #FFF'></td><td style='background: #FFF'></td>
 		</tr>
 		</table>
 		</table>
@@ -4361,7 +4386,7 @@ class link_library_plugin_admin {
 					$editorsettings = array( 'media_buttons' => false,
 											 'textarea_rows' => 5,
 											 'textarea_name' => 'link_textfield',
-											 'wpautop' => true );
+											 'wpautop' => false );
 
 					wp_editor( isset( $extradata['link_textfield'] ) ? ( function_exists( 'esc_textarea' ) ? esc_textarea( stripslashes( $extradata['link_textfield'] ) ) : stripslashes( $extradata['link_textfield'] ) ) : '', 'link_textfield', $editorsettings ); ?>
 				</td>
