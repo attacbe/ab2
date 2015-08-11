@@ -33,10 +33,10 @@ class wp_social_popup_make{
                      'name_option'    =>'wp_social_popup',
                      'name_plugin_url'=>'wp-social-popup-and-get-traffic',
                      'descripcion'    =>'Show content for likes/tweets/+1s',
-                     'version'        =>'4.8.4',
+                     'version'        =>'4.8.8',
                      'url'            =>'',
                      //'logo'           =>'<i class="fa fa-laptop text-long" style="padding:15px 14px!important;"></i>',
-                     'logo'           =>'<img src="'.plugins_url()."/wp-social-popup-and-get-traffic/assets/images/logo.png".'" style="width: 79px;margin-right: 20px;position: relative;top: -14px;opacity: .8;" />',
+                     'logo'           =>'<img src="'.plugins_url()."/wp-social-popup-and-get-traffic/assets/images/logo.png".'" style="width: 79px;margin-right: 20px;position: relative;top: 0px;opacity: .8;" />',
                       // or image .jpg,png | use class 'text-long' in case of name long
                      'logo_text'      =>'', // alt of image
                      'slogan'         =>'', // powered by <a href="">iLenTheme</a>

@@ -3,7 +3,7 @@
 Plugin Name: WP Social Popup and Get Traffic
 Plugin URI: https://wordpress.org/plugins/wp-social-popup-and-get-traffic/
 Description: Show content for likes/follow/+1/Youtube
-Version: 4.8.4
+Version: 4.8.8
 Author: iLen
 Author URI: http://ilentheme.com
 */
@@ -177,7 +177,7 @@ class wp_social_popup extends wp_social_popup_make{
 			'if_only_login'           =>is_user_logged_in()?1:0,
             'button_like_post'        =>isset($opt_wp_social_popup[$this->parameter['name_option'].'_like_post'])?$opt_wp_social_popup[$this->parameter['name_option'].'_like_post']:'',
             'button_like_post_url'    =>get_permalink(),
-            'ip_machine'			  =>$_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']),
+            'ip_machine'			  =>$this->getUserIP(),
             'exclude_ip'			  =>isset($opt_wp_social_popup[$this->parameter['name_option'].'_list_white'])?$opt_wp_social_popup[$this->parameter['name_option'].'_list_white']:'',
             'only_in_post'			  =>isset($opt_wp_social_popup[$this->parameter['name_option'].'_only_in_post'])?$opt_wp_social_popup[$this->parameter['name_option'].'_only_in_post']:'',
             'post_current'			  =>isset($post) && $post?$post->ID:'',
@@ -738,6 +738,33 @@ fjs.parentNode.insertBefore(js, fjs);
 			return true;
 		}
 	}
+
+	/**
+	 * get Real IP from Visitor
+	 *
+	 * @return String
+	 */
+	function getUserIP(){
+	    $client  = @$_SERVER['HTTP_CLIENT_IP'];
+	    $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+	    $remote  = $_SERVER['REMOTE_ADDR'];
+
+	    if(filter_var($client, FILTER_VALIDATE_IP))
+	    {
+	        $ip = $client;
+	    }
+	    elseif(filter_var($forward, FILTER_VALIDATE_IP))
+	    {
+	        $ip = $forward;
+	    }
+	    else
+	    {
+	        $ip = $remote;
+	    }
+
+	    return $ip;
+	}
+
 
 
 
