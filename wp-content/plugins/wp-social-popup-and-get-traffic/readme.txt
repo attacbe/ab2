@@ -8,7 +8,7 @@ Author: iLen
 Requires at least: 3.9
 Tested up to: 4.2.3
 Stable tag:  4.8.6
-Version: 4.8.8
+Version: 4.8.9
 License: GPLv2 or later
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KN6G7PNRZKAEU
 
@@ -83,6 +83,10 @@ With multiple social accounts can increase in a dynamic way, or you can also jus
 
 
 == Changelog ==
+= 4.8.9 =
+* Add lang in facebook button
+* Fixed: Youtube button
+* Update core <code>iLenFramework 2.6.6</code>
 = 4.8.8 =
 * Fixed: validate in code
 = 4.8.7 =

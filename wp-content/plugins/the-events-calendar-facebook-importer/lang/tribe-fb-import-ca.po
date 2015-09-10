@@ -1,0 +1,348 @@
+# Translation of Facebook Events in Catalan
+# This file is distributed under the same license as the Facebook Events package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2015-08-06 15:38:22+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/1.0-alpha-1000\n"
+"Project-Id-Version: Facebook Events\n"
+
+#: src/Tribe/Importer.php:906
+msgid "%1$s. Event Image Error: \"%2$s\" is not a valid image. %3$s"
+msgstr ""
+
+#: src/admin-views/import-page.php:56
+msgid "Select which events you want to import from specific Facebook Pages or Users by entering their details on the  %ssettings page%s. Return to this page to choose which of their events you would like to import."
+msgstr ""
+
+#: src/admin-views/import-page.php:58
+msgid "Since you've already setup some Facebook organization(s) or page(s) to import from, you can import their events below. Visit the %ssettings page%s to modify the Facebook organization(s) or page(s) you want to import from."
+msgstr ""
+
+#: src/admin-views/import-page.php:61
+msgid "You can determine an event's Facebook ID by looking at the URL of the event. For example, the ID of this event: %1$s would be %2$s"
+msgstr ""
+
+#: src/admin-views/import-page.php:70
+msgid "Events from Facebook organizations or pages you've added:"
+msgstr ""
+
+#: src/admin-views/settings-tab.php:24
+msgid "A page or organization's username or ID can be found in the URL used to access its profile. Modern Tribe's page is %s and the username is 'ModernTribeInc'. If a page or organization doesn't have a username, you will see the ID (numerical) in the URL."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "The Events Calendar: Facebook Events"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Import events into The Events Calendar from a Facebook organization or page."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Modern Tribe, Inc."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://m.tri.be/22"
+msgstr ""
+
+#: src/Tribe/Importer.php:141
+msgid "As of version 1.0.6, you need to enter your own Facebook App ID and App secret. Visit %s to generate yours. Enter your App ID and App Secret on the <a href='%s'>event's settings page</a>. "
+msgstr "Des de la versió 1.0.6, has d'introduir el teu propi Facebook App ID i App secret. Visita %s per generar els teus. Introdueix el teu App ID i App Secret a la <a href='%s'>pàgina de configuració de l'esdeveniment</a>."
+
+#: src/Tribe/Importer.php:172
+msgid "Signing up for a Facebook App ID and Secret only takes a second. Visit %s to create yours. "
+msgstr "Registrar-te per obtenir un Facebook App ID i un Secret només et portarà un segon. Visita %s per a crear els teus."
+
+#: src/Tribe/Importer.php:173
+msgid "Visit %s to learn more about Facebook App Ids and Secrets. "
+msgstr "Visita %s per aprendre més sobre Facebook App Ids i Secrets."
+
+#: src/Tribe/Importer.php:174
+msgid "You must enter a Facebook App ID and App Secret to continue importing events from Facebook. Visit %s to create yours. "
+msgstr "Has d'introduir un Facebook App ID i un App Secret per a continuar la importació d'esdeveniments des de Facebook. Visita %s per crear els teus."
+
+#: src/Tribe/Importer.php:403
+msgid "Could not successfully import the image for unknown reasons."
+msgstr "La imatge no s'ha pogut importar correctament per raons desconegudes."
+
+#: src/Tribe/Importer.php:473
+msgid "The return argument should be object or id"
+msgstr "L'argument de retorn ha de ser un objecte o un identificador"
+
+#: src/Tribe/Importer.php:527
+msgid "Object type provided is invalid"
+msgstr "El tipus de l'objecte proporcionat no és vàlid"
+
+#: src/Tribe/Importer.php:813
+msgid "Event ID \"%s\" was already imported from Facebook."
+msgstr "L'identificador de l'esdeveniment \"%s\" ja s'ha importat de Facebook."
+
+#: src/Tribe/Importer.php:823
+msgid "Either the event with ID %s does not exist, is marked as private on Facebook or we couldn't reach the Facebook API"
+msgstr "O bé l'esdeveniment amb ID %s no existeix, està marcat com a privat a Facebook o no podem accedir a l'API de Facebook"
+
+#: src/Tribe/Importer.php:914
+msgid "%s. Event Image Error: The file cannot be saved."
+msgstr "%s. Error d'imatge d'esdeveniment: El fitxer no es pot guardar."
+
+#: src/Tribe/Importer.php:930
+msgid "%s. Event Image Error: Failed to save record into database."
+msgstr "%s. Error d'imatge d'esdeveniment: No s'ha pogut guardar un registre a la base de dades."
+
+#: src/Tribe/Importer.php:1076
+msgid "The Facebook event IDs provided must be numeric and one per line."
+msgstr "Els IDs d'esdeveniments de Facebook proporcionats han de ser numèrics i línia per línia."
+
+#: src/Tribe/Importer.php:1091
+msgid "Import: Facebook"
+msgstr "Importar: Facebook"
+
+#: src/Tribe/Importer.php:1137 src/Tribe/Importer.php:1408
+msgid "Facebook"
+msgstr "Facebook"
+
+#: src/Tribe/Importer.php:1188
+msgid "No valid events were provided for import. The import failed as a result."
+msgstr "No s'han proporcionat esdeveniments vàlids per a importar. La importació ha fallat com a resultat."
+
+#: src/Tribe/Importer.php:1218
+msgctxt "%s is the name of the Facebook user or page"
+msgid "Events from %s:"
+msgstr "Esdeveniments de %s:"
+
+#: src/Tribe/Importer.php:1224
+msgid "%s appears to be an individual. At this time events can only be fetched from organizations and pages, not individuals. If you would like to import an event from an individual, you can do so by entering the Facebook event ID in the box below."
+msgstr "%s sembla ser un individu. Per ara només es poden extreure esdeveniments d'organitzacions i pàgines, no individus. Si vols importar un esdeveniment d'un individu, pots fer-ho introduint l'ID de l'esdeveniment de Facebook en el quadre de sota."
+
+#: src/Tribe/Importer.php:1248
+msgid "Events from <b>%s</b> are not importing because Facebook has returned an error, \"Unsupported get request.\" That error is usually due to an age or country restriction in that Facebook Page's settings, please see our %sFacebook API Errors%s article for options to resolve this."
+msgstr "Els esdeveniments de <b>%s</b> no s'estan important perquè Facebook ha retornat un error \"sol·licitud GET no compatible\". Generalment, aquest error és degut a una restricció d'edat o país en la configuració d'aquesta pàgina de Facebook, si us plau, consulta el nostre article %sErrors de l'API de Facebook%s per saber com resoldre això."
+
+#: src/Tribe/Importer.php:1251
+msgid "Facebook API Error returned for <b>%s</b>: %s"
+msgstr "Error de l'API de Facebook retornat per <b>%s</b>: %s"
+
+#: src/Tribe/Importer.php:1280
+msgid "(previously imported)"
+msgstr "(importat prèviament)"
+
+#: src/Tribe/Importer.php:1293
+msgctxt "%s is the name of the Facebook user or page"
+msgid "%s does not have any Facebook events"
+msgstr "%s no conté cap esdeveniment de Facebook"
+
+#: src/Tribe/Importer.php:1378
+msgid "Once Weekly"
+msgstr "Una vegada per setmana"
+
+#: src/Tribe/Importer.php:1399
+msgid "Import"
+msgstr "Importar"
+
+#: src/Tribe/Importer.php:1417
+msgid "Facebook Events"
+msgstr "Facebook Events"
+
+#: src/Tribe/Importer.php:1439
+msgid "Settings"
+msgstr "Configuració"
+
+#: src/Tribe/Importer.php:1491
+msgid "The Events Calendar"
+msgstr "The Events Calendar"
+
+#: src/Tribe/Importer.php:1492
+msgid "To begin using The Events Calendar: Facebook Events, please install the latest version of %s."
+msgstr "Per començar a utilitzar The Events Calendar: Facebook Events, si us plau, instal·la la darrera versió de %s."
+
+#: src/admin-views/import-page.php:36
+msgid "Go take a look at your event(s)"
+msgstr "Vés a fer una ullada al(s) teu(s) esdeveniment(s)"
+
+#: src/admin-views/import-page.php:15 src/admin-views/settings-tab.php:15
+msgid "Import Facebook Events"
+msgstr "Importar esdeveniments de Facebook"
+
+#: src/admin-views/import-page.php:19
+msgid "The following errors have occurred:"
+msgstr "S'han produït els següents errors:"
+
+#: src/admin-views/import-page.php:26
+msgid "Please note that as a result, no events were successfully imported."
+msgstr "Tingues en compte que com a resultat, cap esdeveniment s'ha importat correctament."
+
+#: src/admin-views/import-page.php:28
+msgid "Please note that other events have been successfully imported."
+msgstr "Tingues en compte que altres esdeveniments s'han importat correctament."
+
+#: src/admin-views/import-page.php:34
+msgid "The selected event has been successfully imported."
+msgid_plural "The %d selected events have been successfully imported."
+msgstr[0] "L'esdeveniment seleccionat s'ha importat correctament."
+msgstr[1] "Els %d esdeveniments seleccionats s'han importat correctament."
+
+#: src/admin-views/import-page.php:43
+msgid "The following errors have occurred during importing images:"
+msgstr "S'han produït els següents errors a l'hora d'importar imatges:"
+
+#: src/admin-views/import-page.php:49
+msgid "Please note that this does not effect importing of associated events unless noted."
+msgstr "Tingues en compte que això no afecta la importació dels esdeveniments associats llevat que s'indiqui el contrari."
+
+#: src/admin-views/import-page.php:54
+msgid "How to Import Facebook Events"
+msgstr "Com importar esdeveniments de Facebook"
+
+#: src/admin-views/import-page.php:60
+msgid "You can also import any specific event by entering Facebook event IDs in the text area below."
+msgstr "També pots importar un esdeveniment específic introduint l'ID de l'esdeveniment Facebook corresponent a l'àrea de text de sota."
+
+#: src/admin-views/import-page.php:76
+msgid "Import events by their Facebook ID:"
+msgstr "Importar esdeveniments pel seu Facebook ID:"
+
+#: src/admin-views/import-page.php:79
+msgid "One event ID per line"
+msgstr "Un ID d'esdeveniment per línia"
+
+#: src/admin-views/import-page.php:84
+msgid "Import events"
+msgstr "Importar esdeveniments"
+
+#: src/admin-views/import-page.php:102
+msgid "Please select or enter the ID of at least one event to import"
+msgstr "Si us plau, selecciona o introdueix l'ID d'almenys un esdeveniment a importar"
+
+#: src/admin-views/settings-tab.php:16
+msgid "Getting Started"
+msgstr "Primeres passes"
+
+#: src/admin-views/settings-tab.php:17
+msgid "You need a Facebook App ID and App Secret to access data via the Facebook Graph API to import your events from Facebook."
+msgstr "Necessites un Facebook App ID i un App secret per tenir accés a la informació a través de l'API de Facebook Graph per importar els teus esdeveniments de Facebook."
+
+#: src/admin-views/settings-tab.php:19
+msgid "%s to learn more about Facebook Apps"
+msgstr "%s per saber-ne més sobre aplicacions Facebook"
+
+#: src/admin-views/settings-tab.php:19 src/admin-views/settings-tab.php:20
+#: src/admin-views/settings-tab.php:38 src/admin-views/settings-tab.php:47
+msgid "Click here"
+msgstr "Clica aquí"
+
+#: src/admin-views/settings-tab.php:20
+msgid "%s to view or create Facebook Apps"
+msgstr "%s per veure o crear aplicacions Facebook"
+
+#: src/admin-views/settings-tab.php:22
+msgid "Selecting pages or organizations to import events with"
+msgstr "Seleccionant pàgines o organitzacions per importar-ne els esdeveniments"
+
+#: src/admin-views/settings-tab.php:23
+msgid "You can retrieve and import events belonging to a Facebook organization or a Facebook page. You will need the username(s) or ID of each organization or page that you want to fetch events from. We do not currently support retrieving events from personal profiles. If you want to import an event from an individual, you can do that with the event ID on the"
+msgstr "Pots importar esdeveniments que pertanyen a una organització o pàgina de Facebook. Necessitaràs el(s) nom(s) d'usuari(s) o l'ID de cada organització o pàgina de les quals vulguis importar-ne esdeveniments. Actualment, no donem suport a la importació d'esdeveniments de perfils personals. Si vols importar un esdeveniment d'un individu, ho pots fer amb l'ID de l'esdeveniment en el"
+
+#: src/admin-views/settings-tab.php:23
+msgid "Import: Facebook page"
+msgstr "Importar: pàgina de Facebook"
+
+#: src/admin-views/settings-tab.php:33
+msgid "Account Settings"
+msgstr "Configuració del compte"
+
+#: src/admin-views/settings-tab.php:37
+msgid "Facebook App ID"
+msgstr "Facebook App ID"
+
+#: src/admin-views/settings-tab.php:38
+msgid "<p>%s to view or create your Facebook Apps"
+msgstr "<p>%s per veure o crear les teves aplicacions Facebook "
+
+#: src/admin-views/settings-tab.php:46
+msgid "Facebook App secret"
+msgstr "Facebook App secret"
+
+#: src/admin-views/settings-tab.php:47
+msgid "<p>%s to view or create your App Secret"
+msgstr "<p>%s per veure o crear la teva App Secret"
+
+#: src/admin-views/settings-tab.php:55
+msgid "Organization and page usernames / IDs to fetch events from"
+msgstr "Noms d'usuari / IDs d'organitzacions i pàgines des d'on importar esdeveniments"
+
+#: src/admin-views/settings-tab.php:56
+msgid "Please put one entry per line."
+msgstr "Si us plau, posa una entrada per línia."
+
+#: src/admin-views/settings-tab.php:56
+msgid "Follow the instructions above to find usernames or IDs."
+msgstr "Segueix les instruccions anteriors per trobar noms d'usuari o IDs."
+
+#: src/admin-views/settings-tab.php:56
+msgid "Events can only be fetched from organizations and pages, not individuals."
+msgstr "Només es poden importar esdeveniments d'organitzacions i pàgines, no individus."
+
+#: src/admin-views/settings-tab.php:65
+msgid "Import Settings"
+msgstr "Configuració d'importació"
+
+#: src/admin-views/settings-tab.php:69
+msgid "Default status to use for imported events"
+msgstr "Estat predeterminat a utilitzar per als esdeveniments importats"
+
+#: src/admin-views/settings-tab.php:70
+msgid "Published"
+msgstr "Publicat"
+
+#: src/admin-views/settings-tab.php:70
+msgid "Draft"
+msgstr "Esborrany"
+
+#: src/admin-views/settings-tab.php:70
+msgid "Pending Review"
+msgstr "Pendent de revisió"
+
+#: src/admin-views/settings-tab.php:76
+msgid "Enable Google Maps on imported events"
+msgstr "Habilitar Google Maps als esdeveniments importats"
+
+#: src/admin-views/settings-tab.php:77
+msgid "Check to enable maps for imported events in the frontend. Please enable Google Maps on the \"General\" tab to ensure your events will have map options."
+msgstr "Marca la casella per activar els mapes per als esdeveniments importats en la interfície frontend. Si us plau, activa Google Maps a la pestanya \"General\" per assegurar-te de que els teus esdeveniments tindran opcions de mapa."
+
+#: src/admin-views/settings-tab.php:84
+msgid "Auto import from Facebook"
+msgstr "Importació automàtica des de Facebook"
+
+#: src/admin-views/settings-tab.php:85
+msgid "If selected, events will be automatically imported from Facebook at the set interval."
+msgstr "Si està seleccionada, els esdeveniments s'importaran automàticament des de Facebook dins l'interval especificat."
+
+#: src/admin-views/settings-tab.php:91
+msgid "Import frequency"
+msgstr "Freqüència d'importació"
+
+#: src/admin-views/settings-tab.php:92
+msgid "How often should we fetch events from Facebook. Only applies if Auto Import is set."
+msgstr "Cada quant s'han d'importar esdeveniments des de Facebook. Només aplicable si la importació automàtica està habilitada."
+
+#: src/admin-views/settings-tab.php:93
+msgid "Weekly"
+msgstr "Una vegada a la setmana"
+
+#: src/admin-views/settings-tab.php:93
+msgid "Daily"
+msgstr "Una vegada al dia"
+
+#: src/admin-views/settings-tab.php:93
+msgid "Twice daily"
+msgstr "Dues vegades al dia"
+
+#: src/admin-views/settings-tab.php:93
+msgid "Hourly"
+msgstr "Cada hora"

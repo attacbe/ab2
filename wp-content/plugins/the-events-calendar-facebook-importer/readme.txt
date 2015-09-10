@@ -1,10 +1,10 @@
 === The Events Calendar: Facebook Events ===
-Contributors:  ModernTribe, roblagatta, ckpicker, websitebakery, peterchester, reid.peifer, shane.pearlman, leahkoerper, neillmcshea, barryhughes, mdbitz, joshlimecuda, jazbek, brook-tribe
+Contributors:  ModernTribe, roblagatta, ckpicker, websitebakery, peterchester, reid.peifer, shane.pearlman, leahkoerper, neillmcshea, barryhughes, mdbitz, joshlimecuda, jazbek, brook-tribe, borkweb, zbtirrell
 Tags: modern tribe, tribe, facebook, events, calendar, recurring, event, venue, import, importer, api, dates, date, plugin, posts, conference, workshop, concert, meeting, seminar, summit
 Donate link: http://m.tri.be/29
-Requires at least: 3.8
-Tested up to: 4.0.1
-Stable tag: 3.9.1
+Requires at least: 3.9
+Tested up to: 4.3
+Stable tag: 3.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,13 +39,14 @@ Make sure to get the free <a href="http://m.tri.be/2x">The Events Calendar</a> p
 1. Activate from the plugins list as you would any other plugin.
 2. Navigate to Events --> Settings and go to the Facebook tab.
 3. Before you can do bulk import or automatically import events from Facebook, you'll need to get a Facebook ID and enter it here. Follow the instructions on the Facebook settings tab or check out <a href="http://m.tri.be/2y">our tutorial</a>.
-3. Once you have your Facebook App ID and Facebook App Secret entered, you're ready to go.
+4. Once you have your Facebook App ID and Facebook App Secret entered, you're ready to go.
 
 = Requirements =
 
-* PHP 5.2 or above
-* WordPress 3.8 or above
-* The Events Calendar 3.9 or above
+* PHP 5.2.4 or greater (recommended: PHP 5.4 or greater)
+* WordPress 3.9 or above
+* jQuery 1.11.x
+* The Events Calendar 3.11 or above
 
 == Frequently Asked Questions ==
 
@@ -91,6 +92,8 @@ The plugin is produced by <a href="http://m.tri.be/32">Modern Tribe Inc</a>.
 * <a href="http://profiles.wordpress.org/users/peterchester">Peter Chester</a>
 * <a href="http://profiles.wordpress.org/users/reid.peifer">Reid Peifer</a>
 * <a href="http://profiles.wordpress.org/users/shane.pearlman">Shane Pearlman</a>
+* <a href="http://profiles.wordpress.org/users/borkweb">Matthew Batchelder</a>
+* <a href="http://profiles.wordpress.org/users/zbtirrell">Zach Tirrell</a>
 
 = Past Contributors =
 
@@ -99,31 +102,26 @@ The plugin is produced by <a href="http://m.tri.be/32">Modern Tribe Inc</a>.
 * <a href="http://profiles.wordpress.org/users/codearachnid">Timothy Wood</a>
 * <a href="http://profiles.wordpress.org/users/jkudish">Joachim Kudish</a>
 
-= Translators =
+= Translations =
 
-* Brazilian Portuguese by Dionizio Bonfim Bach
-* Chinese from Massound Huang
-* Czech from Petr Bastan
-* Dutch by J.F.M. Cornelissen
-* Finnish by Mikko Seppälä
-* French by Alaric Breithof
-* German from Jan
-* Indonesian from Didik Priyanto
-* Italian by Daniel Tieghi
-* Norwegian Nynorsk by Torbjørn Lauen
-* Polish from Arkadiusz Śnieżek
-* Portuguese from Sérgio Leite
-* Romanian from Cosmin Vaman
-* Russian from Evgenii Rybak
-* Slovenian from Žiga Vajdic
-* Spanish from Lorenzo Sastre Muntaner
-* Swedish from Andreas Bodin
+* Chinese (Taiwan)
+* Czech
+* Dutch
+* Finnish
+* French (France)
+* Indonesian
+* Norwegian (Nynorsk)
+* Portuguese (Portugal)
+* Romanian
+* Russian
+* Slovenian
+* Spanish (Spain)
 
-* Previous translators include Mark Galliath, Bastien BC, Ali Senhaji, Frank Rondon, Patricio Campos, Mihai Burcea, and Marek Kosinski
+Many thanks to all our translators!  You can grab the latest translations or contribute at http://translations.theeventscalendar.com
 
 == Add-Ons ==
 
-But wait: there's more! We've got a whole stable of plugins available to help you kick ass at what you do. Check out a full list of the products below, and over at the <a href="http://m.tri.be/33">Modern Tribe website.</a>
+But wait: there's more! We've got a whole stable of plugins available to help you be awesome at what you do. Check out a full list of the products below, and over at the <a href="http://m.tri.be/33">Modern Tribe website.</a>
 
 Our Free Plugins:
 
@@ -143,16 +141,51 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/cu" target="_blank">The Events Calendar: WPEC Tickets</a>
 * <a href="http://m.tri.be/dp" target="_blank">The Events Calendar: Shopp Tickets</a>
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
+* <a href="http://m.tri.be/18ge" target="_blank">The Events Calendar: iCal Importer</a>
+
 
 == Upgrade Notice ==
 
-This upgrade requires The Events Calendar 3.9 or above!
+IMPORTANT NOTICE: 3.11 is a massive update from the 3.9 build, which contains a number of changes under-the-hood. All users are encouraged to backup their site before updating, and to apply the updates on a staging/test site where they can check on + fix customizations as needed before deploying to production.
+
+ALSO: Facebook Events 3.11.1 shifts the plugin to using Facebook Graph API v 2.4. Make sure to backup your site before updating!
 
 == Changelog ==
 
-= IMPORTANT NOTICE =
+= [3.12] 2015-09-08 =
 
-3.x is a complete overhaul of the plugin, and as a result we're starting the changelog fresh. For release notes from the 2.x lifecycle, see <a href="http://m.tri.be/k">our 2.x release notes.</a>
+* Feature - Modified timezone handling to take advantage of new capabilities within The Events Calendar
+* Fix - Fixed and removed some incorrectly exposed HTML from the admin environment
+
+= [3.11.1] 2015-07-22 =
+
+* Bug - Upgrading to Graph API v2.4 from v2.2 to fix bug caused by page requests failing using v2.2 (big thanks to media325 on the forums for the first report!)
+
+= [3.11] 2015-07-22 =
+
+* Security - Added escaping to a number of previously un-escaped values
+* Tweak - Conformed code to updated coding standards
+* Bug - Resolved bug where imported images were attached to posts with an improper file path
+
+= [3.10] 2015-06-16 =
+
+* Tweak - Plugin code has been refactored to new standards: that did result in a new file structure and many renamed classes. Old class names will be deprecated in future releases and, while still working as expected, you can keep track of any deprecated classes yours or third party plugins are calling using the Log Deprecated Notices plugin (https://wordpress.org/plugins/log-deprecated-notices/)
+* Tweak - Enhanced the Facebook import process to help reduce the potential for timeouts when large numbers of events/pages need to be scanned (thanks to media325 for the first report of this!)
+* Tweak - Added better error message when attempting to import events from age restricted pages
+* Tweak - Added some changelog formatting enhancements after seeing keepachangelog.com :)
+
+= 3.9.4 =
+
+* Plugin is now using Facebook Graph API v2.2!
+
+
+= 3.9.3 =
+
+* Hardened URL output to protect against XSS attacks.
+
+= 3.9.2 =
+
+* Fixed a bug that kept venues from importing properly after a recent change in Facebook API (thanks to hellowebsites in the forum for letting us know!)
 
 = 3.9.1 =
 
@@ -269,7 +302,7 @@ Updated version number to 3.0.x for plugin version consistency
 * Fixed an issue where images were failing to import or generating an error for certain users.
 * Improved how plugin addresses venue imports to minimize duplicates (though note: Facebook's API is limited in such a way that we cannot cut out duplicate venues 100% at this time)
 * Organizer phone number no longer displays as Facebook page's hovercard ID.
-* Fixed an issue with unreachable code in Tribe_FB_Importer::json_retrieve().
+* Fixed an issue with unreachable code in Tribe__Events__Facebook__Importer::json_retrieve().
 * Various improvements & enhancements to improve integration with the forthcoming The Events Calendar 3.0 release.
 
 = 1.0.4 =

@@ -3,8 +3,8 @@ Contributors: jackdewey
 Donate link: http://ylefebvre.ca/wordpress-plugins/link-library
 Tags: link, list, directory, page, library, AJAX, RSS, feeds, inline, search, paging, add, submit, import, batch, pop-up
 Requires at least: 3.0
-Tested up to: 4.2
-Stable tag: trunk
+Tested up to: 4.3
+Stable tag: stable
 
 The purpose of this plugin is to add the ability to output a list of link categories and a complete list of links with notes and descriptions.
 
@@ -58,6 +58,34 @@ In addition to specifying a library, categories to be displayed can be specified
 Further configuration is available under the Link Library Settings panel.
 
 == Changelog ==
+
+= 5.9.10.2 =
+* Added action hooks on user-submitted link approval and rejection. Actions are called link_library_approval_email and link_library_rejection_email. They receive two parameters, $linkdata and $linkextradata.
+
+= 5.9.10.1 =
+* Fix for fields not appearing after submitting user link with bad captcha
+
+= 5.9.10 =
+* Added user survey results
+
+= 5.9.9.8 =
+* User-created links will now set the Updated Date field
+
+= 5.9.9.7 =
+* Fix for large description field HTML tags getting messed up on save
+
+= 5.9.9.6 =
+* Fixes to category drop-down list display mode
+
+= 5.9.9.5 =
+* Fix to avoid re-writing .htacess file when you save settings
+
+= 5.9.9.4 =
+* Added span and class to edit link to facilitate positioning or hiding
+
+= 5.9.9.3 =
+* Corrections to link importer
+* Fix for required field when using a Link Acknowledgement URL
 
 = 5.9.9.2 =
 * Prevent submission of search form if visitor has not changed search box content

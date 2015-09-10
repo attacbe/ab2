@@ -3,7 +3,7 @@
 Plugin Name: WP Social Popup and Get Traffic
 Plugin URI: https://wordpress.org/plugins/wp-social-popup-and-get-traffic/
 Description: Show content for likes/follow/+1/Youtube
-Version: 4.8.8
+Version: 4.8.9
 Author: iLen
 Author URI: http://ilentheme.com
 */
@@ -284,7 +284,8 @@ class wp_social_popup extends wp_social_popup_make{
 		if( isset($opt_wp_social_popup[$this->parameter['name_option'].'_disabled_script']) && $opt_wp_social_popup[$this->parameter['name_option'].'_disabled_script'] == 1 ){
 			null;
 		}else{
-			wp_enqueue_script('wsp-fb', 'http://connect.facebook.net/en_US/all.js#xfbml=1', array('jquery'),$this->parameter['version'],FALSE);
+			$lang = get_locale();
+			wp_enqueue_script('wsp-fb', 'http://connect.facebook.net/'.$lang.'/all.js#xfbml=1', array('jquery'),$this->parameter['version'],FALSE);
 		}
 
 		wp_enqueue_script('wsp-tw', 'http://platform.twitter.com/widgets.js', array('jquery'),$this->parameter['version'],FALSE);
@@ -299,6 +300,7 @@ class wp_social_popup extends wp_social_popup_make{
 		*/
 		if(  ! defined( 'WP_CACHE' ) || ! WP_CACHE ){
 			wp_enqueue_script('wsp-go', 'https://apis.google.com/js/plusone.js', array('jquery'),$this->parameter['version'],FALSE);
+			wp_enqueue_script('wsp-youtube', 'https://apis.google.com/js/platform.js', array('jquery'),$this->parameter['version'],FALSE);
 		}
 
 		// If RTL load style for browser RTL
@@ -437,7 +439,7 @@ iframe.fb_iframe_widget_lift,
 			*/
 			//--YOUTUBE
 			if( isset( $opt_wp_social_popup[$this->parameter['name_option']."_button_youtube_suscribe"] ) && $opt_wp_social_popup[$this->parameter['name_option']."_button_youtube_suscribe"] ){
-				$socials["youtube"] ='<div class="g-ytsubscribe" data-channel="'.$opt_wp_social_popup[$this->parameter['name_option']."_button_youtube_suscribe"].'" data-layout="full" data-count="undefined"></div>';
+				$socials["youtube"] ='<div class="g-ytsubscribe" data-channel="'.$opt_wp_social_popup[$this->parameter['name_option']."_button_youtube_suscribe"].'" data-layout="default" data-count="default"></div>';
 			}
 				
 			//--GOOGLE
@@ -553,6 +555,7 @@ iframe.fb_iframe_widget_lift,
 		* 	For buttons of google when having activated any cache plugin has some errors, 
 		*	to correct this part was created.
 		*/
+
 		$type_g = $opt_wp_social_popup[$this->parameter['name_option']."_type_button_gplus"] == "button"?"g-plusone":"g-plus";
 		$social_button_set = $opt_wp_social_popup[$this->parameter['name_option']."_google_url_default"];
 		echo ' <!-- Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
