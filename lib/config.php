@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Enable theme features
  */
@@ -20,7 +21,8 @@ if (!defined('WP_ENV')) {
 /**
  * Add body class if sidebar is active
  */
-function roots_sidebar_body_class($classes) {
+function roots_sidebar_body_class($classes)
+{
   if (roots_display_sidebar()) {
     $classes[] = 'sidebar-primary';
   }
@@ -33,7 +35,8 @@ add_filter('body_class', 'roots_sidebar_body_class');
  *
  * See lib/sidebar.php for more details
  */
-function roots_display_sidebar() {
+function roots_display_sidebar()
+{
   static $display;
 
   if (!isset($display)) {
@@ -51,8 +54,6 @@ function roots_display_sidebar() {
       array(
         'is_404',
         'is_front_page',
-        'tribe_is_upcoming',
-        'tribe_is_event'
       ),
       /**
        * Page template checks (via is_page_template())
@@ -75,4 +76,6 @@ function roots_display_sidebar() {
  * Example: If the content area is 640px wide, set $content_width = 620; so images and videos will not overflow.
  * Default: 1140px is the default Bootstrap container width.
  */
-if (!isset($content_width)) { $content_width = 1140; }
+if (!isset($content_width)) {
+  $content_width = 1140;
+}

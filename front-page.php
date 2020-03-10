@@ -24,19 +24,20 @@
       </h3>
       <div class="row">
         <?php
-          global $post;
-          $all_events = tribe_get_events(array(
-            'tribe_events_cat' => 'conference',
-            'order' => 'DESC',
-            'eventDisplay'=>'past',
-            'posts_per_page'=>-4
-          ));
+        global $post;
+        $all_events = tribe_get_events(array(
+          'tribe_events_cat' => 'conference',
+          'order' => 'DESC',
+          'eventDisplay' => 'past',
+          'posts_per_page' => -4
+        ));
 
-          foreach($all_events as $post) {
-            setup_postdata($post);
+        foreach ($all_events as $post) {
+          setup_postdata($post);
         ?>
           <?php get_template_part('templates/home/conference-card') ?>
-        <?php } wp_reset_query(); ?>
+        <?php }
+        wp_reset_query(); ?>
       </div>
 
       <div class="row">
@@ -106,10 +107,10 @@
           <h5><?php echo get_the_title($page->ID); ?></h5>
         </div>
         <div class="panel-body">
-            <a href="<?php echo get_permalink($page->ID); ?>">
-              <?php echo get_the_post_thumbnail( $page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
-            </a>
-          <?php echo wp_trim_words($page->post_content, $num_words = 50, $more = null );  ?>
+          <a href="<?php echo get_permalink($page->ID); ?>">
+            <?php echo get_the_post_thumbnail($page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+          </a>
+          <?php echo wp_trim_words($page->post_content, $num_words = 50, $more = null);  ?>
           <p>
             <a href="<?php echo get_permalink($page->ID); ?>">
               En savoir plus

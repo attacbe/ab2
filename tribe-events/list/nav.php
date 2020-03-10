@@ -1,33 +1,40 @@
 <?php
 /**
- * List View Nav Template
- * This file loads the list view navigation.
+ * View: List View Nav Template
  *
- * Override this template in your own theme by creating a file at [your-theme]/tribe-events/list/nav.php
+ * Override this template in your own theme by creating a file at:
+ * [your-theme]/tribe/events/v2/list/nav.php
  *
- * @package TribeEventsCalendar
+ * See more documentation about our views templating system.
+ *
+ * @link {INSERT_ARTCILE_LINK_HERE}
+ *
+ * @var string $prev_url The URL to the previous page, if any, or an empty string.
+ * @var string $next_url The URL to the next page, if any, or an empty string.
+ * @var string $today_url The URL to the today page, if any, or an empty string.
+ *
+ * @version 4.9.10
  *
  */
-global $wp_query;
+?>
+<nav class="tribe-events-calendar-list-nav tribe-events-c-nav">
+	<ul class="tribe-events-c-nav__list">
+		<?php
+		if ( ! empty( $prev_url ) ) {
+			$this->template( 'list/nav/prev', [ 'link' => $prev_url ] );
+		} else {
+			$this->template( 'list/nav/prev-disabled' );
+		}
+		?>
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
-} ?>
+		<?php $this->template( 'list/nav/today' ); ?>
 
-<h3 class="tribe-events-visuallyhidden"><?php _e( 'Events List Navigation', 'tribe-events-calendar' ) ?></h3>
-<ul class="tribe-events-sub-nav">
-	<!-- Left Navigation -->
-
-	<?php if ( tribe_has_previous_event() ) : ?>
-		<li class="<?php echo tribe_left_navigation_classes(); ?>">
-			<a href="<?php echo tribe_get_listview_link() ?>" rel="prev"><?php _e( '<span>&laquo;</span> Previous Events', 'tribe-events-calendar' ) ?></a>
-		</li><!-- .tribe-events-nav-left -->
-	<?php endif; ?>
-
-	<!-- Right Navigation -->
-	<?php if ( tribe_has_next_event() ) : ?>
-		<li class="<?php echo tribe_right_navigation_classes(); ?>">
-			<a href="<?php echo tribe_get_listview_link() ?>" rel="next"><?php _e( 'Next Events <span>&raquo;</span>', 'tribe-events-calendar' ) ?></a>
-		</li><!-- .tribe-events-nav-right -->
-	<?php endif; ?>
-</ul>
+		<?php
+		if ( ! empty( $next_url ) ) {
+			$this->template( 'list/nav/next', [ 'link' => $next_url ] );
+		} else {
+			$this->template( 'list/nav/next-disabled' );
+		}
+		?>
+	</ul>
+</nav>

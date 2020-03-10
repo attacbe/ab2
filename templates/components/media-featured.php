@@ -2,6 +2,7 @@
 global $post;
 $args = array(
   'posts_per_page'   => 5,
+  // 'post__in' => get_option('sticky_posts'),
   'category_name'    => 'featured',
   'post_status'      => 'publish'
 );

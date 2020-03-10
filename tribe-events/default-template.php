@@ -1,21 +1,19 @@
 <?php
 /**
-* Default Events Template
-* This file is the basic wrapper template for all the views if 'Default Events Template'
-* is selected in Events -> Settings -> Template -> Events Template.
-*
-* Override this template in your own theme by creating a file at [your-theme]/tribe-events/default-template.php
-*
-* @package TribeEventsCalendar
-*
-*/
+ * View: Default Template for Events
+ *
+ * Override this template in your own theme by creating a file at:
+ * [your-theme]/tribe/events/v2/default-template.php
+ *
+ * See more documentation about our views templating system.
+ *
+ * @link {INSERT_ARTCILE_LINK_HERE}
+ *
+ * @version 5.0.0
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-  die( '-1' );
-}
- ?>
-<div id="tribe-events-pg-template">
-  <?php tribe_events_before_html(); ?>
-  <?php tribe_get_view(); ?>
-  <?php tribe_events_after_html(); ?>
-</div> <!-- #tribe-events-pg-template -->
+use Tribe\Events\Views\V2\Template_Bootstrap;
+
+get_header();
+echo tribe( Template_Bootstrap::class )->get_view_html();
+get_footer();
