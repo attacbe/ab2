@@ -2,7 +2,6 @@
 global $post;
 $args = array(
   'posts_per_page'   => 5,
-  // 'post__in' => get_option('sticky_posts'),
   'category_name'    => 'featured',
   'post_status'      => 'publish'
 );
@@ -17,7 +16,7 @@ $posts_array = get_posts($args);
 
     <div class='media media-featured'>
       <?php if (has_post_thumbnail()) { ?>
-        <a href="<?php the_permalink(); ?>" class="media-left col-xs-6 centered-background" style="background-image: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'event-card-thumb')[0]; ?>)"></a>
+        <a href="<?php the_permalink(); ?>" class="media-left col-xs-12 col-md-6 centered-background" style="background-image: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'event-card-thumb')[0]; ?>)"></a>
       <?php } ?>
       <div class="media-body media-featured__body">
         <a href="<?php the_permalink(); ?>" class='media-heading'>

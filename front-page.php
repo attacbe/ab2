@@ -18,7 +18,16 @@
       <?php get_template_part('templates/components/media-featured') ?>
 
       <h3>
-        <a href="<?php echo home_url(); ?>/agenda/categorie/conferences/liste/?action=tribe_list&tribe_paged=1&tribe_event_display=past&order=ASC" class='section-header'>
+        <a href="<?php echo home_url(); ?>/articles" class='section-header'>
+          News
+        </a>
+      </h3>
+      <div class="row">
+        <?php get_template_part('templates/components/articles-list') ?>
+      </div>
+
+      <h3>
+        <a href="<?php echo home_url(); ?>/events/list/?eventDisplay=past" class='section-header'>
           Dernières conférences
         </a>
       </h3>
@@ -40,27 +49,8 @@
         wp_reset_query(); ?>
       </div>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <h3>
-            <a href="<?php echo home_url(); ?>/articles" class='section-header'>
-              Presse / publications
-            </a>
-          </h3>
-          <?php get_template_part('templates/components/articles-list') ?>
-        </div>
-        <div class="col-sm-6">
-          <h3>
-            <a href="<?php echo home_url(); ?>/events" class='section-header'>
-              Prochains évènements
-            </a>
-          </h3>
-          <?php get_template_part('templates/components/upcoming-events') ?>
-        </div>
-      </div>
     </div>
     <div class="col-md-4">
-
       <div class="fb-like-box" data-href="https://www.facebook.com/ATTAC.Bruxelles2" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
       <?php get_template_part('templates/components/newsletter-widget') ?>
 
@@ -100,26 +90,39 @@
           </div>
         </div>
       </div>
-
-      <?php $page = get_page_by_title('Réseau pour la Justice Fiscale'); ?>
       <div class="panel panel-grey">
-        <div class="panel-heading">
-          <h5><?php echo get_the_title($page->ID); ?></h5>
-        </div>
+        <div class="panel-heading">Nous sommes membre</div>
         <div class="panel-body">
-          <a href="<?php echo get_permalink($page->ID); ?>">
-            <?php echo get_the_post_thumbnail($page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
-          </a>
-          <?php echo wp_trim_words($page->post_content, $num_words = 50, $more = null);  ?>
-          <p>
+          <div class="partner">
+            <?php $page = get_page(1066); ?>
             <a href="<?php echo get_permalink($page->ID); ?>">
-              En savoir plus
+              <h5><?php echo get_the_title($page->ID); ?></h5>
+              <?php echo get_the_post_thumbnail($page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
             </a>
-          </p>
+          </div>
+          <div class="partner">
+            <?php $page = get_page(1063); ?>
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              <h5><?php echo get_the_title($page->ID); ?></h5>
+              <?php echo get_the_post_thumbnail($page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+            </a>
+          </div>
+          <div class="partner">
+            <?php $page = get_page(444); ?>
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              <h5><?php echo get_the_title($page->ID); ?></h5>
+              <?php echo get_the_post_thumbnail($page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+            </a>
+          </div>
+          <div class="partner">
+            <?php $page = get_page(1060); ?>
+            <a href="<?php echo get_permalink($page->ID); ?>">
+              <h5><?php echo get_the_title($page->ID); ?></h5>
+              <?php echo get_the_post_thumbnail($page->ID, 'medium', array('class' => "spread thumbnail col-xs-12")); ?>
+            </a>
+          </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </div>
