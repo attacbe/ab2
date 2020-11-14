@@ -7611,10 +7611,15 @@ object {
 }
 .media-featured .media-left {
   padding-left: 0;
-  min-height: 300px;
+  min-height: 150px;
+}
+@media (min-width: 992px) {
+  .media-featured .media-left {
+    min-height: 300px;
+  }
 }
 .media-featured .centered-background {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .media-featured__body {
