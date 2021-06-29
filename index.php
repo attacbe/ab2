@@ -7,9 +7,9 @@
   <?php get_search_form(); ?>
 <?php endif; ?>
 
-<div class="post-list">
+<div class="post-list row">
   <?php while (have_posts()) : the_post(); ?>
-    <?php get_template_part('templates/content', get_post_format()); ?>
+    <?php get_template_part('templates/home/conference-card') ?>
   <?php endwhile; ?>
 </div>
 
